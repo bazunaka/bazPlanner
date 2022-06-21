@@ -1,0 +1,18 @@
+﻿<Window x:Class="bazPlannerWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bazPlannerWPF"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="bazPlanner-WPF version" Height="450" Width="800">
+    <Grid Background="#ffdadada">
+        <Menu Height="25" VerticalAlignment="Top">
+            <MenuItem Header="Меню1" Height="25"></MenuItem>
+            <MenuItem Header="Меню2" Height="25"></MenuItem>
+            <MenuItem Header="Меню3" Height="25"></MenuItem>
+            <MenuItem Header="Меню4" Height="25"></MenuItem>
+        </Menu>                
+    </Grid>
+</Window>
