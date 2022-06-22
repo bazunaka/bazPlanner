@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static bazPlannerWPF.sqlite_connect;
 
 namespace bazPlannerWPF
 {
@@ -23,6 +24,14 @@ namespace bazPlannerWPF
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void connect_to_DB(object sender, RoutedEventArgs e)
+        {
+           if(sqlite_connect.Connect("test.db"))
+            {
+                Console.WriteLine("Connected!");
+            }
         }
     }
 }

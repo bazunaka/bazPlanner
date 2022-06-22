@@ -9,7 +9,9 @@
         Title="bazPlanner-WPF version" Height="450" Width="800">
     <Grid Background="#ffdadada">
         <Menu Height="25" VerticalAlignment="Top">
-            <MenuItem Header="Меню1" Height="25"></MenuItem>
+            <MenuItem Header="Меню1" Height="25">
+                <MenuItem Header="Подключение к БД" Click="connect_to_DB"/>
+            </MenuItem>
             <MenuItem Header="Меню2" Height="25"></MenuItem>
             <MenuItem Header="Меню3" Height="25"></MenuItem>
             <MenuItem Header="Меню4" Height="25"></MenuItem>

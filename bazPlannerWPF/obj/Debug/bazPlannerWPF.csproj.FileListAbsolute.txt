@@ -19,3 +19,11 @@ G:\github\bazPlanner\bazPlannerWPF\obj\Debug\bazPlannerWPF.csproj.GenerateResour
 G:\github\bazPlanner\bazPlannerWPF\obj\Debug\bazPlannerWPF.csproj.CopyComplete
 G:\github\bazPlanner\bazPlannerWPF\obj\Debug\bazPlannerWPF.exe
 G:\github\bazPlanner\bazPlannerWPF\obj\Debug\bazPlannerWPF.pdb
+G:\github\bazPlanner\bazPlannerWPF\bin\Debug\EntityFramework.dll
+G:\github\bazPlanner\bazPlannerWPF\bin\Debug\EntityFramework.SqlServer.dll
+G:\github\bazPlanner\bazPlannerWPF\bin\Debug\System.Data.SQLite.dll
+G:\github\bazPlanner\bazPlannerWPF\bin\Debug\System.Data.SQLite.EF6.dll
+G:\github\bazPlanner\bazPlannerWPF\bin\Debug\System.Data.SQLite.Linq.dll
+G:\github\bazPlanner\bazPlannerWPF\bin\Debug\EntityFramework.xml
+G:\github\bazPlanner\bazPlannerWPF\bin\Debug\EntityFramework.SqlServer.xml
+G:\github\bazPlanner\bazPlannerWPF\bin\Debug\System.Data.SQLite.xml
