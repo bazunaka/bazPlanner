@@ -8,13 +8,15 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="bazPlanner-WPF version" Height="450" Width="800">
     <Grid Background="#ffdadada">
-        <Menu Height="25" VerticalAlignment="Top">
+        <Menu Height="25" VerticalAlignment="Top" Margin="0,0,250,0" >
             <MenuItem Header="Меню1" Height="25">
-                <MenuItem Header="Подключение к БД" Click="connect_to_DB"/>
+                <MenuItem Header="Подключение к БД" Click="Connect_to_DB"/>
+                <MenuItem Header="Создать проект" Click="Create_project"/>
             </MenuItem>
             <MenuItem Header="Меню2" Height="25"></MenuItem>
             <MenuItem Header="Меню3" Height="25"></MenuItem>
             <MenuItem Header="Меню4" Height="25"></MenuItem>
-        </Menu>                
+        </Menu>
+        <Label Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="14">Незарегистрированный пользователь</Label>
     </Grid>
 </Window>

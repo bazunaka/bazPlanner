@@ -26,12 +26,17 @@ namespace bazPlannerWPF
             InitializeComponent();
         }
 
-        private void connect_to_DB(object sender, RoutedEventArgs e)
+        private void Connect_to_DB(object sender, RoutedEventArgs e)
         {
            if(sqlite_connect.Connect("test.db"))
             {
                 Console.WriteLine("Connected!");
             }
+        }
+
+        private void Create_project(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Created!");
         }
     }
 }
