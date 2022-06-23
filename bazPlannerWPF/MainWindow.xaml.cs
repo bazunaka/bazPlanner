@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static bazPlannerWPF.sqlite_connect;
+using static bazPlannerWPF.auth;
 
 namespace bazPlannerWPF
 {
@@ -32,6 +33,10 @@ namespace bazPlannerWPF
             {
                 Console.WriteLine("Connected!");
             }
+
+            auth a = new auth(); //изменить потом название
+            a.Show();
+
         }
 
         private void Create_project(object sender, RoutedEventArgs e)
