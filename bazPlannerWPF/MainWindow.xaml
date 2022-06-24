@@ -18,5 +18,9 @@
             <MenuItem Header="Меню4" Height="25"></MenuItem>
         </Menu>
         <Label Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="14">Незарегистрированный пользователь</Label>
+
+        <StatusBar VerticalAlignment="Bottom" Height="25" HorizontalContentAlignment="Stretch">
+            <Label Height="25" HorizontalAlignment="Right" FontSize="14" Name="Now_time"></Label>
+        </StatusBar>
     </Grid>
 </Window>

@@ -83,8 +83,15 @@
     <Compile Include="auth.xaml.cs">
       <DependentUpon>auth.xaml</DependentUpon>
     </Compile>
+    <Compile Include="create_user.xaml.cs">
+      <DependentUpon>create_user.xaml</DependentUpon>
+    </Compile>
     <Compile Include="sqlite_connect.cs" />
     <Page Include="auth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="create_user.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
