@@ -27,24 +27,16 @@ namespace bazPlannerWPF
             }
         }
 
-        static public void CheckAuth()
+        static public int CheckAuth()
         {
-            if (Connect("test.db"))
+            command = new SQLiteCommand(connection)
             {
-                command = new SQLiteCommand(connection)
-                {
-                    CommandText = "SELECT * FROM task"
-                };
-                int c = command.ExecuteReader().StepCount;
+                 CommandText = "SELECT * FROM owner"
+            };
+            int cnt = command.ExecuteReader().StepCount;
 
-                Console.WriteLine(c);
-            }
-
-            else
-            {
-                Console.WriteLine("Error!!!");
-            }
+            Console.WriteLine(cnt);
+            return cnt;
         }
-
     }
 }

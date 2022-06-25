@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static bazPlannerWPF.sqlite_connect;
 using static bazPlannerWPF.auth;
+using System.IO;
 
 namespace bazPlannerWPF
 {
@@ -32,13 +33,18 @@ namespace bazPlannerWPF
             {
                 Console.WriteLine("Connected!");
             }
+
+            //File.AppendAllText("log.txt", Environment.NewLine); логирование потом!
         }
 
         private void Connect_to_DB(object sender, RoutedEventArgs e)
         {
-
-            CheckAuth();
-
+            if(CheckAuth() == 0)
+            {
+                auth f = new auth(); //переименовать
+                f.Show();
+            }
+            
         }
 
         private void Create_project(object sender, RoutedEventArgs e)
