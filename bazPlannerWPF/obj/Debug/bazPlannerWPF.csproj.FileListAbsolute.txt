@@ -29,3 +29,5 @@ G:\github\bazPlanner\bazPlannerWPF\bin\Debug\EntityFramework.SqlServer.xml
 G:\github\bazPlanner\bazPlannerWPF\bin\Debug\System.Data.SQLite.xml
 G:\github\bazPlanner\bazPlannerWPF\obj\Debug\auth.g.cs
 G:\github\bazPlanner\bazPlannerWPF\obj\Debug\auth.baml
+G:\github\bazPlanner\bazPlannerWPF\obj\Debug\create_user.g.cs
+G:\github\bazPlanner\bazPlannerWPF\obj\Debug\create_user.baml

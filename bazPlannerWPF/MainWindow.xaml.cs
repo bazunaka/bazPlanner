@@ -27,22 +27,17 @@ namespace bazPlannerWPF
             InitializeComponent();
             DateTime now = DateTime.Now;
             Now_time.Content = now.ToString("D");
+            
+            if(sqlite_connect.Connect("test.db"))
+            {
+                Console.WriteLine("Connected!");
+            }
         }
 
         private void Connect_to_DB(object sender, RoutedEventArgs e)
         {
-           if(sqlite_connect.Connect("test.db"))
-            {
-                Console.WriteLine("Connected!");
-            }
 
-           if(true) //при отсутствии пользователей в БД
-            {
-
-            }
-
-            auth a = new auth(); //изменить потом название
-            a.Show();
+            CheckAuth();
 
         }
 
