@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bazPlannerWPF"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="bazPlanner-WPF version" Height="450" Width="800">
+        Title="bazPlanner-WPF version" MinHeight="950" MinWidth="1200">
     <Grid Background="#ffdadada">
         <Menu Height="25" VerticalAlignment="Top" Margin="0,0,250,0" >
             <MenuItem Header="Меню1" Height="25">
@@ -18,7 +17,15 @@
             <MenuItem Header="Меню4" Height="25"></MenuItem>
         </Menu>
         <Label Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="14">Незарегистрированный пользователь</Label>
-
+        <Grid ShowGridLines="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="0.25*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Calendar Grid.Column="1" VerticalAlignment="Top" Margin="0,30,0,0" Height="350" Language="ru-RU"></Calendar>
+            <Calendar Grid.Column="1" VerticalAlignment="Center" Height="350" Language="ru-RU"></Calendar>
+            <Calendar Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,30" Height="350" Language="ru-RU"></Calendar>
+        </Grid>
         <StatusBar VerticalAlignment="Bottom" Height="25" HorizontalContentAlignment="Stretch">
             <Label Height="25" HorizontalAlignment="Right" FontSize="14" Name="Now_time"></Label>
         </StatusBar>
