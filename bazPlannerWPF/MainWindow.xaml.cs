@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -8,12 +7,12 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using static bazPlannerWPF.sqlite_connect;
 using static bazPlannerWPF.auth;
+using static bazPlannerWPF.create_user;
+using static bazPlannerWPF.create_project;
+using static bazPlannerWPF.create_task;
 using System.IO;
 
 namespace bazPlannerWPF
@@ -34,6 +33,10 @@ namespace bazPlannerWPF
                 Console.WriteLine("Connected!");
             }
 
+            PrevMonth.SelectedDate = DateTime.Now.AddMonths(-1); //это будет настоящий месяц а далее +1 и +2
+            PresentMonth.SelectedDate = DateTime.Now;
+            NextMonth.SelectedDate = DateTime.Now.AddMonths(1);
+
             //File.AppendAllText("log.txt", Environment.NewLine); логирование потом!
         }
 
@@ -41,15 +44,22 @@ namespace bazPlannerWPF
         {
             if(CheckAuth() == 0)
             {
-                auth f = new auth(); //переименовать
-                f.Show();
+                create_user newUser = new create_user();
+                newUser.Show();
             }
             
         }
 
         private void Create_project(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Created!");
+            create_project newProject = new create_project();
+            newProject.Show();
+        }
+
+        private void Create_task(object sender, RoutedEventArgs e)
+        {
+            create_task newTask = new create_task();
+            newTask.Show();
         }
     }
 }

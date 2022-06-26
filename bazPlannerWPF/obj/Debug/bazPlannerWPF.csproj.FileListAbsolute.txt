@@ -48,3 +48,7 @@ G:\github\bazPlanner\bazPlannerWPF\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.d
 G:\github\bazPlanner\bazPlannerWPF\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 G:\github\bazPlanner\bazPlannerWPF\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 G:\github\bazPlanner\bazPlannerWPF\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+G:\github\bazPlanner\bazPlannerWPF\obj\Debug\create_project.g.cs
+G:\github\bazPlanner\bazPlannerWPF\obj\Debug\create_task.g.cs
+G:\github\bazPlanner\bazPlannerWPF\obj\Debug\create_project.baml
+G:\github\bazPlanner\bazPlannerWPF\obj\Debug\create_task.baml

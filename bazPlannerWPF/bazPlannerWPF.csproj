@@ -27,6 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -98,11 +99,25 @@
     <Compile Include="auth.xaml.cs">
       <DependentUpon>auth.xaml</DependentUpon>
     </Compile>
+    <Compile Include="create_project.xaml.cs">
+      <DependentUpon>create_project.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="create_task.xaml.cs">
+      <DependentUpon>create_task.xaml</DependentUpon>
+    </Compile>
     <Compile Include="create_user.xaml.cs">
       <DependentUpon>create_user.xaml</DependentUpon>
     </Compile>
     <Compile Include="sqlite_connect.cs" />
     <Page Include="auth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="create_project.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="create_task.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
