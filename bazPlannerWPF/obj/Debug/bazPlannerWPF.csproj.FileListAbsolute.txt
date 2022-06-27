@@ -52,3 +52,4 @@ G:\github\bazPlanner\bazPlannerWPF\obj\Debug\create_project.g.cs
 G:\github\bazPlanner\bazPlannerWPF\obj\Debug\create_task.g.cs
 G:\github\bazPlanner\bazPlannerWPF\obj\Debug\create_project.baml
 G:\github\bazPlanner\bazPlannerWPF\obj\Debug\create_task.baml
+G:\github\bazPlanner\bazPlannerWPF\obj\Debug\Styles.baml
