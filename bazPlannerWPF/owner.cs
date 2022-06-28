@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace bazPlannerWPF
+﻿namespace bazPlannerWPF
 {
-    class Owner
+    public class Owner
     {
-        public String nameOwner;
-        public String passwordOwner;
+        public string nameOwner;
+        public string passwordOwner;
+
+        public void AddToDatabase(string nameOwner, string passwordOwner)
+        {
+            //SQL Insert into database
+        }
     }
 }

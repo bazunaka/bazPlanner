@@ -1,25 +1,23 @@
-﻿using System;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using static bazPlannerWPF.Owner;
-
+﻿using System.Windows;
 
 namespace bazPlannerWPF
 {
-    /// <summary>
-    /// Логика взаимодействия для create_user.xaml
-    /// </summary>
     public partial class create_user : Window
     {
+       
         public create_user()
         {
             InitializeComponent();
         }
 
-        Owner newUser = new Owner();
-        public String asd = newUser.nameOwner;
+        private void okClick_Click(object sender, RoutedEventArgs e)
+        {
+            Owner asd = new Owner();
+            asd.nameOwner = username.Text;
+            asd.passwordOwner = userpswd.Text;
+
+            qwe.Content = asd.nameOwner;
+            zxc.Content = asd.passwordOwner;
+        }
     }
 }

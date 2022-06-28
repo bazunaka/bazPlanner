@@ -109,7 +109,9 @@
       <DependentUpon>create_user.xaml</DependentUpon>
     </Compile>
     <Compile Include="Owner.cs" />
+    <Compile Include="Project.cs" />
     <Compile Include="sqlite_connect.cs" />
+    <Compile Include="Task.cs" />
     <Page Include="auth.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

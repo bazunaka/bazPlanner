@@ -7,11 +7,10 @@
         mc:Ignorable="d"
         Title="create_user" Height="450" Width="800">
     <Grid>
-        <Label>Введите имя пользователя:</Label>
-        <Label Margin="0,20,0,0">
-            <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
-        </Label>
+        <Label Name="qwe">Введите имя пользователя:</Label>
+        <Label Margin="0,20,0,0" Name="zxc">Введите пароль:</Label>
         <TextBox Height="25" Width="80" VerticalAlignment="Top" Margin="0,0,0,0"  Text="Name" Name="username"/>
         <TextBox Height="25" Width="80" VerticalAlignment="Top" Margin="0,25,0,0" Text="Password" Name="userpswd"/>
+        <Button  Height="25" Width="80" VerticalAlignment="Top" Margin="0,50,0,0" Name="okClick" Click="okClick_Click"></Button>
     </Grid>
 </Window>
