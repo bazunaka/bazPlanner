@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bazPlannerWPF"
         mc:Ignorable="d"
-        Title="create_user" Height="450" Width="800">
+        Title="create_user" Height="250" Width="400">
     <Grid>
-        <Label Name="qwe">Введите имя пользователя:</Label>
-        <Label Margin="0,20,0,0" Name="zxc">Введите пароль:</Label>
+        <Label Name="label_username">Введите имя пользователя:</Label>
+        <Label Margin="0,20,0,0" Name="label_password">Введите пароль:</Label>
         <TextBox Height="25" Width="80" VerticalAlignment="Top" Margin="0,0,0,0"  Text="Name" Name="username"/>
         <TextBox Height="25" Width="80" VerticalAlignment="Top" Margin="0,25,0,0" Text="Password" Name="userpswd"/>
-        <Button  Height="25" Width="80" VerticalAlignment="Top" Margin="0,50,0,0" Name="okClick" Click="okClick_Click"></Button>
+        <Button  Height="25" VerticalAlignment="Bottom" Margin="0,0,0,10" Name="okClick" Click="Add_to_DB" 
+                 Background="#FF3A62B7" BorderBrush="#FF3A62B7" Content="Добавить в БД" Width="150"></Button>
     </Grid>
 </Window>

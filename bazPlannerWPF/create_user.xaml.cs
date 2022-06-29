@@ -10,14 +10,13 @@ namespace bazPlannerWPF
             InitializeComponent();
         }
 
-        private void okClick_Click(object sender, RoutedEventArgs e)
+        private void Add_to_DB(object sender, RoutedEventArgs e)
         {
-            Owner asd = new Owner();
-            asd.nameOwner = username.Text;
-            asd.passwordOwner = userpswd.Text;
-
-            qwe.Content = asd.nameOwner;
-            zxc.Content = asd.passwordOwner;
+            Owner asd = new Owner
+            {
+                nameOwner = username.Text,
+                passwordOwner = userpswd.Text
+            };
         }
     }
 }
