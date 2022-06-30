@@ -1,4 +1,6 @@
-﻿namespace bazPlannerWPF
+﻿using static bazPlannerWPF.sqlite_connect;
+
+namespace bazPlannerWPF
 {
     public class Owner
     {
@@ -7,7 +9,7 @@
 
         public void AddToDatabase(string nameOwner, string passwordOwner)
         {
-            //SQL Insert into database
+            InsertUser(nameOwner, passwordOwner);
         }
     }
 }

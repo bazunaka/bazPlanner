@@ -23,21 +23,21 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="0.28*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Calendar Grid.Column="1" VerticalAlignment="Top"    Margin="0,30,2,20" Language="ru-RU" MaxHeight="300" MaxWidth="250" x:Name="PrevMonth">
+            <Calendar Grid.Column="1" VerticalAlignment="Top"    Margin="0,30,2,20" Language="ru-RU" MaxHeight="300" MaxWidth="250" x:Name="PresentMonth">
                 <Calendar.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="1" ScaleY="0.94"></ScaleTransform>
                     </TransformGroup>
                 </Calendar.RenderTransform>
             </Calendar>
-            <Calendar Grid.Column="1" VerticalAlignment="Center" Margin="0,10,2,10" Language="ru-RU" MaxHeight="300" MaxWidth="250" x:Name="PresentMonth">
+            <Calendar Grid.Column="1" VerticalAlignment="Center" Margin="0,10,2,10" Language="ru-RU" MaxHeight="300" MaxWidth="250" x:Name="NextMonth">
                 <Calendar.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="1" ScaleY="0.96"></ScaleTransform>
                     </TransformGroup>
                 </Calendar.RenderTransform>
             </Calendar>
-            <Calendar Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,2,20"  Language="ru-RU" MaxHeight="300" MaxWidth="250" x:Name="NextMonth">
+            <Calendar Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,2,20"  Language="ru-RU" MaxHeight="300" MaxWidth="250" x:Name="TwoNextMonth">
                 <Calendar.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="1" ScaleY="0.96"></ScaleTransform>

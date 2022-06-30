@@ -34,9 +34,21 @@ namespace bazPlannerWPF
                  CommandText = "SELECT * FROM owner"
             };
             int cnt = command.ExecuteReader().StepCount;
-
             Console.WriteLine(cnt);
             return cnt;
+        }
+
+        static public string InsertUser(string nameUser, string passwordUser)
+        {
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = $"INSERT INTO owner (name_owner, password_owner) VALUES ('{nameUser}', '{passwordUser}')"
+            };
+            
+            command.ExecuteNonQuery();
+            string result = command.CommandText;
+            Console.WriteLine(result);
+            return result;
         }
     }
 }

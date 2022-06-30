@@ -17,9 +17,6 @@ using System.IO;
 
 namespace bazPlannerWPF
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -33,9 +30,9 @@ namespace bazPlannerWPF
                 Console.WriteLine("Connected!");
             }
 
-            PrevMonth.SelectedDate = DateTime.Now.AddMonths(-1); //это будет настоящий месяц а далее +1 и +2
             PresentMonth.SelectedDate = DateTime.Now;
-            NextMonth.SelectedDate = DateTime.Now.AddMonths(1);
+            NextMonth.SelectedDate = DateTime.Now.AddMonths(+1);
+            TwoNextMonth.SelectedDate = DateTime.Now.AddMonths(+2);
 
             //File.AppendAllText("log.txt", Environment.NewLine); логирование потом!
         }
