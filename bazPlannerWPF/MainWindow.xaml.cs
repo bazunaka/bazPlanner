@@ -44,7 +44,10 @@ namespace bazPlannerWPF
                 create_user newUser = new create_user();
                 newUser.Show();
             }
-            
+            else
+            {
+                CheckAdmin();
+            }
         }
 
         private void Create_project(object sender, RoutedEventArgs e)

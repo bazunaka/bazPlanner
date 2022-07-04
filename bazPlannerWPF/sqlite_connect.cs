@@ -50,5 +50,16 @@ namespace bazPlannerWPF
             Console.WriteLine(result);
             return result;
         }
+
+        static public int CheckAdmin()
+        {
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = "SELECT * FROM owner WHERE name_owner='admin'"
+            };
+            int cnt = command.ExecuteReader().StepCount;
+            Console.WriteLine(cnt);
+            return cnt;
+        }
     }
 }
