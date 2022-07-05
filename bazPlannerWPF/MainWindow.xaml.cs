@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Navigation;
 using static bazPlannerWPF.sqlite_connect;
-using static bazPlannerWPF.auth;
-using static bazPlannerWPF.create_user;
-using static bazPlannerWPF.create_project;
-using static bazPlannerWPF.create_task;
-using System.IO;
+using static bazPlannerWPF.Owner;
 
 namespace bazPlannerWPF
 {
