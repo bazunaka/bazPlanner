@@ -31,30 +31,17 @@ namespace bazPlannerWPF
         {           
             command = new SQLiteCommand(connection)
             {
-                CommandText = "SELECT * FROM owner"
+                CommandText = $"SELECT * FROM owner WHERE name_owner='{nameOwner}' AND password_owner='{passwordOwner}'"
             };
             SQLiteDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
-                while (reader.Read())
-                {
-                    if (nameOwner == reader[1].ToString() && passwordOwner == reader[2].ToString())
-                    {
-                        Console.WriteLine("Success!");
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Abort!");
-                        break;
-                    }
-                }
-                
+                Console.WriteLine("Success!");
             }
             else
             {
-                reader.Close();
-            }
+                Console.WriteLine("Abort!");
+            }            
         }
     }
 }
