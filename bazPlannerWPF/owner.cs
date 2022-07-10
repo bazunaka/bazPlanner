@@ -8,6 +8,7 @@ namespace bazPlannerWPF
     {
         public string nameOwner;
         public string passwordOwner;
+        static public string nameAuth;
 
         public void AddToDatabase(string nameOwner, string passwordOwner)
         {
@@ -15,20 +16,11 @@ namespace bazPlannerWPF
         }
         static public void CheckAdmin()
         {
-            command = new SQLiteCommand(connection)
-            {
-                CommandText = "SELECT * FROM owner WHERE name_owner='admin'"
-            };
-            int cnt = command.ExecuteReader().StepCount;
-            if (cnt == 1)
-            {
-                auth form_auth = new auth();
-                form_auth.Show();
-            }
+
         }
 
-        static public void Auth(string nameOwner, string passwordOwner)
-        {           
+        static public bool Auth(string nameOwner, string passwordOwner)
+        {  
             command = new SQLiteCommand(connection)
             {
                 CommandText = $"SELECT * FROM owner WHERE name_owner='{nameOwner}' AND password_owner='{passwordOwner}'"
@@ -36,11 +28,12 @@ namespace bazPlannerWPF
             SQLiteDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
-                Console.WriteLine("Success!");
+                nameAuth = nameOwner;
+                return true;
             }
             else
             {
-                Console.WriteLine("Abort!");
+                return false;
             }            
         }
     }

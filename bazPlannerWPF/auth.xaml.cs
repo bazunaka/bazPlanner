@@ -12,7 +12,14 @@ namespace bazPlannerWPF
 
         private void AuthToDB(object sender, RoutedEventArgs e)
         {
-            Auth(TextBoxUser.Text, TextBoxPassword.Text);
+            if(Auth(TextBoxUser.Text, TextBoxPassword.Text))
+            {
+                Close();
+            }
+            else
+            {
+                 _ = Auth(TextBoxUser.Text, TextBoxPassword.Text);
+            }  
         }
     }
 }

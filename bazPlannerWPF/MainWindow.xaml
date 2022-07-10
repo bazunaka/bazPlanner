@@ -17,7 +17,7 @@
             <MenuItem Header="Меню3" Height="25"></MenuItem>
             <MenuItem Header="Меню4" Height="25"></MenuItem>
         </Menu>
-        <Label Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="14">Незарегистрированный пользователь</Label>
+        <Label Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="14" Name="labelAuth">Незарегистрированный пользователь</Label>
         <Grid ShowGridLines="False">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
