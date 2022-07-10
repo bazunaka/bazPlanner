@@ -7,7 +7,6 @@ namespace bazPlannerWPF
 {
     public partial class MainWindow : Window
     {
-        public string nameAuthUser;
 
         public MainWindow()
         {
@@ -34,8 +33,11 @@ namespace bazPlannerWPF
             }
             else
             {
-                auth auth = new auth();
-                auth.Show();
+                auth formAuth = new auth
+                {
+                    Owner = this
+                };
+                formAuth.Show();
             }
         }
 

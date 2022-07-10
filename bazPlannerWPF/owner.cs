@@ -19,7 +19,7 @@ namespace bazPlannerWPF
 
         }
 
-        static public bool Auth(string nameOwner, string passwordOwner)
+        static public string Auth(string nameOwner, string passwordOwner)
         {  
             command = new SQLiteCommand(connection)
             {
@@ -29,11 +29,11 @@ namespace bazPlannerWPF
             if (reader.HasRows)
             {
                 nameAuth = nameOwner;
-                return true;
+                return nameAuth;
             }
             else
             {
-                return false;
+                return "Not register!";
             }            
         }
     }
