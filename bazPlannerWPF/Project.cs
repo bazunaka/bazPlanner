@@ -10,5 +10,10 @@
         {
             //SQL Insert into table
         }
+
+        public void SelectProject()
+        {
+            //SQL Select from table
+        }
     }
 }
