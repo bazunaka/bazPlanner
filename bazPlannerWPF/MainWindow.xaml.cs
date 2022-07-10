@@ -21,8 +21,6 @@ namespace bazPlannerWPF
             }
 
             PresentMonth.SelectedDate = DateTime.Now;
-            NextMonth.SelectedDate = DateTime.Now.AddMonths(+1);
-            TwoNextMonth.SelectedDate = DateTime.Now.AddMonths(+2);
 
             //File.AppendAllText("log.txt", Environment.NewLine); логирование потом!
         }
@@ -51,6 +49,11 @@ namespace bazPlannerWPF
         {
             create_task newTask = new create_task();
             newTask.Show();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
