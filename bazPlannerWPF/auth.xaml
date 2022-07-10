@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:bazPlannerWPF"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Подключение к базе данных" Height="300" Width="400">
+        Title="Подключение к базе данных" Height="150" Width="300" ResizeMode="NoResize" FontFamily="Arial">
     <Grid Background="#ffdadada">
-        <Label Content="Label" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="5,20,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="80" Margin="50,0,0,0"/>
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="80" Margin="50,20,0,0"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="153,227,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Введите имя пользователя" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Name="labelUser"/>
+        <Label Content="Введите пароль" HorizontalAlignment="Left" Margin="5,20,0,0" VerticalAlignment="Top" Name="labelPassword"/>
+        <TextBox HorizontalAlignment="Right" VerticalAlignment="Top" Height="20" Width="100" Margin="0,0,10,0" Name="TextBoxUser"/>
+        <TextBox HorizontalAlignment="Right" VerticalAlignment="Top" Height="20" Width="100" Margin="0,20,10,0" Name="TextBoxPassword"/>
+        <Button Content="Подключиться" FontSize="10" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Bottom" Height="25" Width="100"
+                Background="#FF0077FF" BorderBrush="{x:Null}" Click="AuthToDB"/>
     </Grid>
 </Window>

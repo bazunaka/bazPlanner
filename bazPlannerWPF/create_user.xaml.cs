@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using static bazPlannerWPF.sqlite_connect;
+using static bazPlannerWPF.DBConnect;
 using static bazPlannerWPF.Owner;
 using System.Data.SQLite;
 

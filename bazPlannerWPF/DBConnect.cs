@@ -3,7 +3,7 @@ using System.Data.SQLite;
 
 namespace bazPlannerWPF
 {
-    class sqlite_connect
+    class DBConnect
     {
         public static SQLiteConnection connection;
         public static SQLiteCommand command;

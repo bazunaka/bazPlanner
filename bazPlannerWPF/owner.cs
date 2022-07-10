@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data.SQLite;
-using static bazPlannerWPF.sqlite_connect;
+using static bazPlannerWPF.DBConnect;
 
 namespace bazPlannerWPF
 {
@@ -24,6 +24,36 @@ namespace bazPlannerWPF
             {
                 auth form_auth = new auth();
                 form_auth.Show();
+            }
+        }
+
+        static public void Auth(string nameOwner, string passwordOwner)
+        {           
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = "SELECT * FROM owner"
+            };
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    if (nameOwner == reader[1].ToString() && passwordOwner == reader[2].ToString())
+                    {
+                        Console.WriteLine("Success!");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Abort!");
+                        break;
+                    }
+                }
+                
+            }
+            else
+            {
+                reader.Close();
             }
         }
     }

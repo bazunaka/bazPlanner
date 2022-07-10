@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-using static bazPlannerWPF.sqlite_connect;
+using static bazPlannerWPF.DBConnect;
 using static bazPlannerWPF.Owner;
 
 namespace bazPlannerWPF
@@ -13,7 +13,7 @@ namespace bazPlannerWPF
             DateTime now = DateTime.Now;
             Now_time.Content = now.ToString("D");
             
-            if(sqlite_connect.Connect("test.db"))
+            if(DBConnect.Connect("test.db"))
             {
                 Console.WriteLine("Connected!");
             }
