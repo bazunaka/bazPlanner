@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
+﻿using System.Data.SQLite;
 using System.Windows;
 using static bazPlannerWPF.DBConnect;
 
@@ -13,9 +11,13 @@ namespace bazPlannerWPF
         public string dateProject;
         
 
-        public void InsertProject(string nameProject, string ownerProject, string dateProject)
+        static public void InsertProject()
         {
-            //SQL Insert into table
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = $"INSERT INTO project(name_project, owner_project, date_project) VALUES ('asdsad', 2, '12.07.2022')" //переделать! INSERT INTO tbl_name VALUES(expr, expr)
+            };
+            command.ExecuteNonQuery();
         }
 
         static public void SelectProject()
@@ -25,7 +27,6 @@ namespace bazPlannerWPF
                 CommandText = $"SELECT name_project FROM project WHERE owner_project=2" //переделать!
             };
             SQLiteDataReader reader = command.ExecuteReader();
-            //List<string> listProject = new List<string>();
             if (reader.HasRows)
             {
                 while (reader.Read())

@@ -8,7 +8,6 @@
         Title="Создать проект" Height="120" Width="180">
     <Grid>
         <TextBox Name="textNameProject" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Имя проекта" VerticalAlignment="Top" Width="120"/>
-        <Button Name="buttonAddProject" Content="Добавить" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top"/>
-
+        <Button Name="buttonAddProject" Content="Добавить" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Click="AddProject"/>
     </Grid>
 </Window>
