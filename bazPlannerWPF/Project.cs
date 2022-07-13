@@ -22,7 +22,7 @@ namespace bazPlannerWPF
         {
             command = new SQLiteCommand(connection)
             {
-                CommandText = $"SELECT name_project FROM project WHERE owner_project=2"
+                CommandText = $"SELECT name_project FROM project WHERE owner_project=2" //переделать!
             };
             SQLiteDataReader reader = command.ExecuteReader();
             //List<string> listProject = new List<string>();
