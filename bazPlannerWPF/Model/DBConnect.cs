@@ -5,8 +5,8 @@ namespace bazPlannerWPF
 {
     class DBConnect
     {
-        public static SQLiteConnection connection;
-        public static SQLiteCommand command;
+        public static SQLiteConnection connection = default;
+        public static SQLiteCommand command = default;
 
         static public bool Connect(String fileName)
         {

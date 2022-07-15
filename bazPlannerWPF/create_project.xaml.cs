@@ -12,7 +12,7 @@ namespace bazPlannerWPF
 
         private void AddProject(object sender, RoutedEventArgs e)
         {
-            InsertProject();
+            InsertProject(textNameProject.Text, "admin");
         }
     }
 }

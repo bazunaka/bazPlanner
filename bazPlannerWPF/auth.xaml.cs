@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using static bazPlannerWPF.Owner;
 using static bazPlannerWPF.Project;
 
@@ -15,7 +14,7 @@ namespace bazPlannerWPF
         private void AuthToDB(object sender, RoutedEventArgs e)
         {
             ((MainWindow)Application.Current.MainWindow).labelAuth.Content =  Auth(TextBoxUser.Text, TextBoxPassword.Text);
-            SelectProject();
+            SelectProject(Auth(TextBoxUser.Text, TextBoxPassword.Text));
             //((MainWindow)Application.Current.MainWindow).listElements.Items.Add(SelectProject());
             Close();
         }

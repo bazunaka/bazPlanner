@@ -1,13 +1,14 @@
-﻿using System.Data.SQLite;
+﻿using System.Windows;
+using System.Data.SQLite;
 using static bazPlannerWPF.DBConnect;
 
 namespace bazPlannerWPF
 {
     public class Owner
     {
-        public string nameOwner;
-        public string passwordOwner;
-        static public string nameAuth;
+        public string nameOwner = default;
+        public string passwordOwner = default;
+        static public string nameAuth = default;
 
         public void AddToDatabase(string nameOwner, string passwordOwner)
         {
@@ -27,6 +28,8 @@ namespace bazPlannerWPF
             SQLiteDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
+                ((MainWindow)Application.Current.MainWindow).menuCreateProject.IsEnabled = true;
+                ((MainWindow)Application.Current.MainWindow).menuCreateTask.IsEnabled = true;
                 nameAuth = nameOwner;
                 return nameAuth;
             }

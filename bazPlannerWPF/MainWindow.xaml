@@ -15,12 +15,12 @@
         <Menu Height="25" HorizontalAlignment="Left" Width="auto">
                         <MenuItem Header="Главное меню" Height="25" Click="MenuItem_Click">
                             <MenuItem Header="Подключение к БД" Click="Connect_to_DB"/>
-                            <MenuItem Header="Создать проект"   Click="Create_project"/>
-                            <MenuItem Header="Создать задачу"   Click="Create_task"/>
+                            <MenuItem Header="Создать проект"   Click="Create_project" IsEnabled="False" Name="menuCreateProject"/>
+                            <MenuItem Header="Создать задачу"   Click="Create_task"    IsEnabled="False" Name="menuCreateTask"/>
                         </MenuItem>
-                        <MenuItem Header="Меню2" Height="25"></MenuItem>
-                        <MenuItem Header="Меню3" Height="25"></MenuItem>
-                        <MenuItem Header="Меню4" Height="25"></MenuItem>
+                        <MenuItem Header="Меню2" Height="25" IsEnabled="False"></MenuItem>
+                        <MenuItem Header="Меню3" Height="25" IsEnabled="False"></MenuItem>
+                        <MenuItem Header="Меню4" Height="25" IsEnabled="False"></MenuItem>
                     </Menu>
         <StackPanel x:Name="StackTop" Grid.Row="0" HorizontalAlignment="Right" Width="auto">
             <Label Height="25" FontSize="14" x:Name="labelAuth" Width="252" Content="Незарегистрированный пользователь" HorizontalAlignment="Right"/>
