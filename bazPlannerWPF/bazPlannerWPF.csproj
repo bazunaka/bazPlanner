@@ -228,10 +228,10 @@
     <Compile Include="create_user.xaml.cs">
       <DependentUpon>create_user.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Owner.cs" />
-    <Compile Include="Project.cs" />
-    <Compile Include="DBConnect.cs" />
-    <Compile Include="Task.cs" />
+    <Compile Include="Model\DBConnect.cs" />
+    <Compile Include="Model\Owner.cs" />
+    <Compile Include="Model\Project.cs" />
+    <Compile Include="Model\Task.cs" />
     <Page Include="auth.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -309,6 +309,7 @@
   <ItemGroup>
     <Resource Include="logs\log.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

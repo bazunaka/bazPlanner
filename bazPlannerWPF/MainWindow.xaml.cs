@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using static bazPlannerWPF.DBConnect;
-using static bazPlannerWPF.Owner;
 
 namespace bazPlannerWPF
 {
