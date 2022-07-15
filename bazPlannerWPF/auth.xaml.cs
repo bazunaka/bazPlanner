@@ -4,9 +4,9 @@ using static bazPlannerWPF.Project;
 
 namespace bazPlannerWPF
 {
-    public partial class auth : Window
+    public partial class Auth : Window
     {
-        public auth()
+        public Auth()
         {
             InitializeComponent();
         }

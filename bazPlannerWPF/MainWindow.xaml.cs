@@ -32,7 +32,7 @@ namespace bazPlannerWPF
             }
             else
             {
-                auth formAuth = new auth
+                Auth formAuth = new Auth
                 {
                     Owner = this
                 };
@@ -42,7 +42,7 @@ namespace bazPlannerWPF
 
         private void Create_project(object sender, RoutedEventArgs e)
         {
-            create_project newProject = new create_project();
+            Create_project newProject = new Create_project();
             newProject.Show();
         }
 

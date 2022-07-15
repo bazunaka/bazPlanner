@@ -25,7 +25,7 @@ namespace bazPlannerWPF
         {
             command = new SQLiteCommand(connection)
             {
-                CommandText = $"SELECT name_project FROM project, owner WHERE project.owner_project = owner.id_owner"
+                CommandText = $"SELECT project.name_project FROM project INNER JOIN owner ON project.owner_project = owner.id_owner WHERE owner.name_owner = '{nameOwner}'"
             };
             SQLiteDataReader reader = command.ExecuteReader();
             if (reader.HasRows)

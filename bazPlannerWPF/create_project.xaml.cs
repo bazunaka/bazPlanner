@@ -3,16 +3,16 @@ using static bazPlannerWPF.Project;
 
 namespace bazPlannerWPF
 {
-    public partial class create_project : Window
+    public partial class Create_project : Window
     {
-        public create_project()
+        public Create_project()
         {
             InitializeComponent();
         }
 
         private void AddProject(object sender, RoutedEventArgs e)
         {
-            InsertProject(textNameProject.Text, "admin");
+            InsertProject(textNameProject.Text, ((MainWindow)Application.Current.MainWindow).labelAuth.Content.ToString());
         }
     }
 }
