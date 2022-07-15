@@ -23,6 +23,7 @@ namespace bazPlannerWPF
 
         static public void SelectProject(string nameOwner)
         {
+            ((MainWindow)Application.Current.MainWindow).listElements.Items.Clear();
             command = new SQLiteCommand(connection)
             {
                 CommandText = $"SELECT project.name_project FROM project INNER JOIN owner ON project.owner_project = owner.id_owner WHERE owner.name_owner = '{nameOwner}'"

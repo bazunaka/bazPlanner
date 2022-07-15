@@ -1,11 +1,23 @@
-﻿<Window x:Class="bazPlannerWPF.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bazPlannerWPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="bazPlannerWPF.MainWindow"
         mc:Ignorable="d"
         Title="bazPlanner-WPF version" MinHeight="550" MinWidth="800"  Height="550" Width="800">
+    <Window.Resources>
+        <Style x:Key="CalendarCalendarItemStyle1" TargetType="{x:Type CalendarItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CalendarItem}">
+                        <Grid/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid x:Name="GridMain" Style="{StaticResource StyleForMainWimdow}">
         <Grid.RowDefinitions>
             <RowDefinition x:Name="Header" Height="Auto" Language="ru-ru" MaxHeight="30"/>
@@ -13,21 +25,21 @@
             <RowDefinition x:Name="Bottom" Height="30" Language="ru-ru"/>
         </Grid.RowDefinitions>
         <Menu Height="25" HorizontalAlignment="Left" Width="auto">
-                        <MenuItem Header="Главное меню" Height="25" Click="MenuItem_Click">
-                            <MenuItem Header="Подключение к БД" Click="Connect_to_DB"/>
-                            <MenuItem Header="Создать проект"   Click="Create_project" IsEnabled="False" Name="menuCreateProject"/>
-                            <MenuItem Header="Создать задачу"   Click="Create_task"    IsEnabled="False" Name="menuCreateTask"/>
-                        </MenuItem>
-                        <MenuItem Header="Меню2" Height="25" IsEnabled="False"></MenuItem>
-                        <MenuItem Header="Меню3" Height="25" IsEnabled="False"></MenuItem>
-                        <MenuItem Header="Меню4" Height="25" IsEnabled="False"></MenuItem>
-                    </Menu>
+            <MenuItem Header="Главное меню" Height="25" Click="MenuItem_Click">
+                <MenuItem Header="Подключение к БД" Click="Connect_to_DB"/>
+                <MenuItem Header="Создать проект"   Click="Create_project" IsEnabled="False" x:Name="menuCreateProject"/>
+                <MenuItem Header="Создать задачу"   Click="Create_task"    IsEnabled="False" x:Name="menuCreateTask"/>
+            </MenuItem>
+            <MenuItem Header="Меню2" Height="25" IsEnabled="False"/>
+            <MenuItem Header="Меню3" Height="25" IsEnabled="False"/>
+            <MenuItem Header="Меню4" Height="25" IsEnabled="False"/>
+        </Menu>
         <StackPanel x:Name="StackTop" Grid.Row="0" HorizontalAlignment="Right" Width="auto">
             <Label Height="25" FontSize="14" x:Name="labelAuth" Width="252" Content="Незарегистрированный пользователь" HorizontalAlignment="Right"/>
         </StackPanel>
         <DockPanel Grid.Row="1">
-            <Calendar Width="250" x:Name="PresentMonth" DockPanel.Dock="Right" Height="330" VerticalAlignment="Top" Language="ru-ru"/>
-            <ListBox Width="200" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left" Name="listElements"/>
+            <Calendar CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" Width="250" x:Name="PresentMonth" DockPanel.Dock="Right" Height="330" VerticalAlignment="Top" Language="ru-ru"/>
+            <ListBox Width="200" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left" x:Name="listElements"/>
         </DockPanel>
         <StackPanel x:Name="StackBottom" Grid.Row="2">
             <StatusBar Height="auto" HorizontalContentAlignment="Stretch" Width="auto">
