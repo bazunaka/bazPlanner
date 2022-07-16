@@ -12,10 +12,14 @@ namespace bazPlannerWPF
             InitializeComponent();
             DateTime now = DateTime.Now;
             Now_time.Content = now.ToString("D");
-            
-            if(DBConnect.Connect("test.db"))
+
+            if (Connect("test.db"))
             {
                 Console.WriteLine("Connected!");
+            }
+            else
+            {
+                Console.WriteLine("Not connected!");
             }
 
             //PresentMonth.SelectedDate = DateTime.Now;
