@@ -1,6 +1,6 @@
-﻿using System.Windows;
-using System.Data.SQLite;
-using System.Diagnostics;
+﻿using System;
+using System.Windows;
+using bazPlanner.Models;
 
 namespace bazPlanner
 {
@@ -8,28 +8,12 @@ namespace bazPlanner
     {
         public MainWindow()
         {
-            //Create connection.
-            var connectionStringBuilder = new SQLiteConnectionStringBuilder();
-            connectionStringBuilder.DataSource = "test.db";
-
-            using (var connection = new SQLiteConnection(connectionStringBuilder.ConnectionString))
-            {
-                connection.Open();
-                
-                var selectCmd = connection.CreateCommand();
-                selectCmd.CommandText = "SELECT * FROM Owners";
-                using var reader = selectCmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    var result = reader.GetString(1);
-                    Debug.WriteLine(result);
-                }
-            }
-            Debug.WriteLine("Connected!");
-
-           
             InitializeComponent();
-
+            //Connect to database.
+            Database.Connect();
+            //Now time.
+            DateTime now = DateTime.Now;
+            labelTime.Content = now.ToString("D");
         }
     }
 }

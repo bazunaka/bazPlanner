@@ -67,3 +67,6 @@ G:\github\bazPlanner\bazPlanner\bin\Debug\net6.0-windows\runtimes\win-arm\native
 G:\github\bazPlanner\bazPlanner\bin\Debug\net6.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
 G:\github\bazPlanner\bazPlanner\bin\Debug\net6.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 G:\github\bazPlanner\bazPlanner\bin\Debug\net6.0-windows\runtimes\win-x86\native\e_sqlite3.dll
+G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\Forms\Auth.g.cs
+G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\bazPlanner_MarkupCompile.lref
+G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\Forms\Auth.baml

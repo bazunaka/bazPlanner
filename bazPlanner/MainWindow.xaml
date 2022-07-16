@@ -12,12 +12,12 @@
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalContentAlignment="Center">
-            <MenuItem Header="Menu1" Height="30"></MenuItem>
+            <MenuItem Header="Подключиться к БД" Height="30"></MenuItem>
             <MenuItem Header="Menu2"></MenuItem>
             <MenuItem Header="Menu3"></MenuItem>
             <MenuItem Header="Menu4"></MenuItem>
@@ -25,6 +25,7 @@
             <MenuItem Header="Menu6"></MenuItem>
         </Menu>
         <Label Grid.Column="2" Grid.Row="0" Background="#FFF0F0F0">Unregistered!</Label>
-        <ListView Grid.Column="0" Grid.Row="1" Width="150" HorizontalAlignment="Left"></ListView>
+        <ListView Grid.Row="1" Width="200" HorizontalAlignment="Center"/>
+        <Label Grid.Column="0" Grid.Row="2" Background="#FFF0F0F0" Name="labelTime"></Label>
     </Grid>
 </Window>
