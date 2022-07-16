@@ -18,7 +18,7 @@ namespace bazPlannerWPF
                 Console.WriteLine("Connected!");
             }
 
-            PresentMonth.SelectedDate = DateTime.Now;
+            //PresentMonth.SelectedDate = DateTime.Now;
 
             //File.AppendAllText("log.txt", Environment.NewLine); логирование потом!
         }

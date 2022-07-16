@@ -22,7 +22,7 @@
         <Grid.RowDefinitions>
             <RowDefinition x:Name="Header" Height="Auto" Language="ru-ru" MaxHeight="30"/>
             <RowDefinition x:Name="Content" Language="ru-ru" />
-            <RowDefinition x:Name="Bottom" Height="30" Language="ru-ru"/>
+            <RowDefinition x:Name="Footer" Height="30" Language="ru-ru"/>
         </Grid.RowDefinitions>
         <Menu Height="25" HorizontalAlignment="Left" Width="auto">
             <MenuItem Header="Главное меню" Height="25" Click="MenuItem_Click">
@@ -38,7 +38,6 @@
             <Label Height="25" FontSize="14" x:Name="labelAuth" Width="252" Content="Незарегистрированный пользователь" HorizontalAlignment="Right"/>
         </StackPanel>
         <DockPanel Grid.Row="1">
-            <Calendar CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" Width="250" x:Name="PresentMonth" DockPanel.Dock="Right" Height="330" VerticalAlignment="Top" Language="ru-ru"/>
             <ListBox Width="200" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left" x:Name="listElements"/>
         </DockPanel>
         <StackPanel x:Name="StackBottom" Grid.Row="2">

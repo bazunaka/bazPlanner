@@ -7,8 +7,6 @@ namespace bazPlannerWPF
 {
     public partial class create_user : Window
     {
-        static SQLiteCommand cmd;
-       
         public create_user()
         {
             InitializeComponent();
