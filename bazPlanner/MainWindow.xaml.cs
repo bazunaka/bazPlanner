@@ -1,28 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using System.Data.SQLite;
+using System.Diagnostics;
 
 namespace bazPlanner
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
+            //Create connection.
+            var connectionStringBuilder = new SQLiteConnectionStringBuilder();
+            connectionStringBuilder.DataSource = "test.db";
+
+            using (var connection = new SQLiteConnection(connectionStringBuilder.ConnectionString))
+            {
+                connection.Open();
+                
+                var selectCmd = connection.CreateCommand();
+                selectCmd.CommandText = "SELECT * FROM Owners";
+                using var reader = selectCmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var result = reader.GetString(1);
+                    Debug.WriteLine(result);
+                }
+            }
+            Debug.WriteLine("Connected!");
+
+           
             InitializeComponent();
+
         }
     }
 }
