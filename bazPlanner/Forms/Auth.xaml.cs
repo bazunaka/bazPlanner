@@ -11,6 +11,7 @@ namespace bazPlanner.Forms
             InitializeComponent();
         }
 
+        //Test connect to database and view projects.
         private void ClickForAuth(object sender, RoutedEventArgs e)
         {
             if (Database.SelectOwner(textOwnerName.Text, textOwnerPass.Password.ToString()) == 1)
