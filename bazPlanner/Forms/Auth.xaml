@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bazPlanner.Forms"
         mc:Ignorable="d"
-        Title="Auth" Height="250" Width="300">
+        Title="Авторизация" Height="150" Width="250">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="1.4*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Center" FontSize="14" FontFamily="Arial">Логин</Label>
+        <Label Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Center" FontSize="14" FontFamily="Arial">Пароль</Label>
+        <TextBox Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Width="150" Height="30" Name="textOwnerName"></TextBox>
+        <PasswordBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Width="150" Height="30" PasswordChar="*" Name="textOwnerPass"></PasswordBox>
+        <Button Grid.Column="1" Grid.Row="2" FontSize="14" FontFamily="Arial" Height="30" Click="ClickForAuth">Подключиться</Button>
     </Grid>
 </Window>

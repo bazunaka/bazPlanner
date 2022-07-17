@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using bazPlanner.Models;
+using bazPlanner.Forms;
 
 namespace bazPlanner
 {
@@ -14,6 +15,16 @@ namespace bazPlanner
             //Now time.
             DateTime now = DateTime.Now;
             labelTime.Content = now.ToString("D");
+        }
+
+        //Show form fot auth.
+        private void FormAuth(object sender, RoutedEventArgs e)
+        {
+            Auth authWindow = new()
+            {
+                Owner = this
+            };
+            authWindow.Show();
         }
     }
 }

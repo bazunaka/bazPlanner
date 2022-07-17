@@ -17,7 +17,7 @@
             <ColumnDefinition Width="0.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalContentAlignment="Center">
-            <MenuItem Header="Подключиться к БД" Height="30"></MenuItem>
+            <MenuItem Header="Подключиться к БД" Height="30" Click="FormAuth"></MenuItem>
             <MenuItem Header="Menu2"></MenuItem>
             <MenuItem Header="Menu3"></MenuItem>
             <MenuItem Header="Menu4"></MenuItem>
