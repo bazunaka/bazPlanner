@@ -17,6 +17,7 @@ namespace bazPlanner.Forms
             {
                 Debug.WriteLine("Success!");
                 ((MainWindow)Application.Current.MainWindow).labelAuth.Content = textOwnerName.Text;
+                Database.SelectProjects(textOwnerName.Text);
             }
             else
             {

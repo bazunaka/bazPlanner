@@ -1,13 +1,14 @@
-﻿using System.Data.SQLite;
+﻿using System.Windows;
+using System.Data.SQLite;
 using System.Diagnostics;
 
 namespace bazPlanner.Models
 {
     class Database
     {
-        public static SQLiteConnection connection;
-        public static SQLiteCommand command;
-        //Create connection.
+        public static SQLiteConnection? connection;
+        public static SQLiteCommand? command;
+        //Create connection. 
         static public bool Connect()
         {
             try
@@ -36,6 +37,24 @@ namespace bazPlanner.Models
             };
             int cnt = command.ExecuteReader().StepCount;
             return cnt;
+        }
+
+        //Select projects.
+        static public bool SelectProjects(string OwnerName)
+        {
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = $"SELECT Projects.ProjectName FROM Projects INNER JOIN Owners ON Projects.ProjectOwner = Owners.OwnerID WHERE Owners.OwnerName = '{OwnerName}'"
+            };
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    ((MainWindow)Application.Current.MainWindow).listProjects.Items.Add(reader[0].ToString());
+                }
+            }
+            return true;
         }
     }
 }
