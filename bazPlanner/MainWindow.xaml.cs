@@ -26,5 +26,10 @@ namespace bazPlanner
             };
             authWindow.Show();
         }
+
+        private void AddProject(object sender, RoutedEventArgs e)
+        {
+            Database.InsertProject();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Data.SQLite;
 using System.Diagnostics;
 
@@ -53,6 +54,25 @@ namespace bazPlanner.Models
                 {
                     ((MainWindow)Application.Current.MainWindow).listProjects.Items.Add(reader[0].ToString());
                 }
+            }
+            return true;
+        }
+
+        //Insert project in database.
+        static public bool InsertProject()
+        {
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = $"INSERT INTO Projects(ProjectName, ProjectOwner, ProjectDate) VALUES('project2-5', '2', '{DateTime.Now.ToShortDateString}')"
+            };
+            int result = command.ExecuteNonQuery();
+            if (result == 0)
+            {
+                Debug.WriteLine("Not Added!");
+            } 
+            else
+            {
+                Debug.WriteLine("Success!");
             }
             return true;
         }
