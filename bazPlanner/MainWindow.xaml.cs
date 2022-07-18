@@ -17,7 +17,7 @@ namespace bazPlanner
             labelTime.Content = now.ToString("D");
         }
 
-        //Show form fot auth.
+        //Show form for auth.
         private void FormAuth(object sender, RoutedEventArgs e)
         {
             Auth authWindow = new()
@@ -29,7 +29,12 @@ namespace bazPlanner
 
         private void AddProject(object sender, RoutedEventArgs e)
         {
-            Database.InsertProject();
+            //Show form for add new project.
+            AddProject addProject = new()
+            {
+                Owner = this
+            };
+            addProject.Show();
         }
     }
 }

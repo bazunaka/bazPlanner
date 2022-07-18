@@ -7,11 +7,17 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Forms\AddProject.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Forms\Auth.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Forms\AddProject.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Forms\Auth.xaml">
       <SubType>Designer</SubType>
     </Page>

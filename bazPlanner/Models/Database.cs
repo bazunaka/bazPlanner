@@ -59,17 +59,19 @@ namespace bazPlanner.Models
         }
 
         //Insert project in database.
-        static public bool InsertProject()
+        static public bool InsertProject(string projectName, string ownerProject)
         {
+            string sqlFormattedDate = DateTime.Today.ToString("dd.MM.yyyy");
             command = new SQLiteCommand(connection)
             {
-                CommandText = $"INSERT INTO Projects(ProjectName, ProjectOwner, ProjectDate) VALUES('project2-5', '2', '{DateTime.Now.ToShortDateString}')"
+                CommandText = $"INSERT INTO Projects(ProjectName, ProjectOwner, ProjectDate) VALUES('{projectName}', " + 
+                $"(SELECT Owners.OwnerID FROM Owners INNER JOIN Projects ON Projects.ProjectOwner = Owners.OwnerID WHERE Owners.OwnerName = '{ownerProject}'), '{sqlFormattedDate}'"
             };
-            int result = command.ExecuteNonQuery();
-            if (result == 0)
+            command.ExecuteNonQuery();
+            if (command.ExecuteNonQuery() == 1)
             {
                 Debug.WriteLine("Not Added!");
-            } 
+            }
             else
             {
                 Debug.WriteLine("Success!");

@@ -70,3 +70,5 @@ G:\github\bazPlanner\bazPlanner\bin\Debug\net6.0-windows\runtimes\win-x86\native
 G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\Forms\Auth.g.cs
 G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\bazPlanner_MarkupCompile.lref
 G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\Forms\Auth.baml
+G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\Forms\AddProject.g.cs
+G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\Forms\AddProject.baml
