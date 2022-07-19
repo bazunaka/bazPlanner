@@ -36,5 +36,11 @@ namespace bazPlanner
             };
             addProject.Show();
         }
+
+        //Show name project if select item.
+        private void listProjects_Selected(object sender, RoutedEventArgs e)
+        {
+            labelNameProject.Content = listProjects.SelectedItem.ToString();
+        }
     }
 }

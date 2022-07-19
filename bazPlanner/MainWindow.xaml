@@ -30,10 +30,17 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="0.1*"></RowDefinition>
             </Grid.RowDefinitions>
-            <ListView Grid.Row="0" Height="auto" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="5,5,5,0" Name="listProjects"></ListView>
+            <ListView Grid.Row="0" Height="auto" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="5,5,5,0" Name="listProjects" SelectionChanged="listProjects_Selected">
+            </ListView>
             <Button Grid.Row="1" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5,0,5,0" Name="buttonAddProject" Click="AddProject">Добавить</Button>
         </Grid>
-
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" FontSize="14" HorizontalContentAlignment="Center" Name="labelNameProject">Название проекта</Label>
+        </Grid>
         <Grid Grid.Row="1" Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.8*"></RowDefinition>

@@ -67,7 +67,7 @@ namespace bazPlanner.Models
                 CommandText = $"INSERT INTO Projects(ProjectName, ProjectOwner, ProjectDate) VALUES('{projectName}', " + 
                 $"(SELECT Owners.OwnerID FROM Owners INNER JOIN Projects ON Projects.ProjectOwner = Owners.OwnerID WHERE Owners.OwnerName = '{ownerProject}'), '{sqlFormattedDate}')"
             };
-            command.ExecuteNonQuery();
+            //command.ExecuteNonQuery();
             if (command.ExecuteNonQuery() == 1)
             {
                 Debug.WriteLine("Success!");

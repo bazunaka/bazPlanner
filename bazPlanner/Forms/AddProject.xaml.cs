@@ -3,9 +3,6 @@ using bazPlanner.Models;
 
 namespace bazPlanner.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для AddProject.xaml
-    /// </summary>
     public partial class AddProject : Window
     {
         public AddProject()
@@ -15,7 +12,10 @@ namespace bazPlanner.Forms
 
         private void CreateNewProject(object sender, RoutedEventArgs e)
         {
-            Database.InsertProject("test", "admin");
+            MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
+            string nameUser = mainWindow.labelAuth.Content.ToString();
+            Database.InsertProject(textNameProject.Text, nameUser);
+            textNameProject.Clear();
         }
     }
 }
