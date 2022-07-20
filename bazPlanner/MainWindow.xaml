@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="bazPlanner-WPF-NETCore" Height="450" Width="800" MinHeight="450" MinWidth="800">
+        Title="bazPlanner-WPF-NETCore" Height="480" Width="800" MinHeight="480" MinWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
@@ -30,23 +30,26 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="0.1*"></RowDefinition>
             </Grid.RowDefinitions>
-            <ListView Grid.Row="0" Height="auto" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="5,5,5,0" Name="listProjects" SelectionChanged="listProjects_Selected">
+            <ListView Grid.Row="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="5,5,5,5" Name="listProjects" SelectionChanged="listProjects_Selected">
             </ListView>
-            <Button Grid.Row="1" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5,0,5,0" Name="buttonAddProject" Click="AddProject">Добавить</Button>
+            <Button Grid.Row="1" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5,2,5,2" Name="buttonAddProject" Click="AddProject">Добавить</Button>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.Column="1" Width="auto" Height="auto">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.1*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="0.11*"></RowDefinition>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" FontSize="14" HorizontalContentAlignment="Center" Name="labelNameProject">Название проекта</Label>
+            <DataGrid Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="2,5,2,8"/>
+            <Button Grid.Row="2" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="2,2,5,2" Width="120" HorizontalAlignment="Left">Добавить задачу</Button>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.8*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Calendar Grid.Row="0" Width="auto" Height="auto" Margin="5,5,5,5" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.RowSpan="2"/>
+            <Calendar Style="{DynamicResource CalendarStyle1}" Grid.Row="0" Margin="5,5,5,5" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.RowSpan="2"/>
         </Grid>
         <Label Height="auto" Grid.Column="0" Grid.Row="2" Background="#FFF0F0F0" Name="labelTime" Margin="0,5,0,0"></Label>
     </Grid>
