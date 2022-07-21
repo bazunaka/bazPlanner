@@ -27,5 +27,6 @@
         <ComboBox Grid.Row="1" Grid.Column="1" Margin="10,15,10,15"></ComboBox>
         <DatePicker Grid.Row="2" Grid.Column="1" Margin="10,15,10,15"></DatePicker>
         <DatePicker Grid.Row="3" Grid.Column="1" Margin="10,15,10,15"></DatePicker>
+        <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="100,10,100,10">Добавить</Button>
     </Grid>
 </Window>
