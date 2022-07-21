@@ -1,0 +1,140 @@
+﻿using System;
+using System.Windows;
+using System.Data.SQLite;
+using System.Diagnostics;
+using bazPlanner.Forms;
+using System.Collections.Generic;
+
+namespace bazPlanner.Models
+{
+    class Database
+    {
+        public static SQLiteConnection? connection;
+        public static SQLiteCommand? command;
+        //Create connection. 
+        static public bool Connect()
+        {
+            try
+            {
+                connection = new SQLiteConnection("Data Source=test.db; Version=3; FailIfMissing=False");
+                connection.Open();
+                Debug.WriteLine("Connected!");
+                return true;
+            }
+            catch (SQLiteException ex)
+            {
+                Debug.WriteLine($"Ошибка доступа к базе данных. Исключение: {ex.Message}");
+                return false;
+            }
+            
+        }
+        
+        //Select owner for auth.
+        static public int SelectOwner(string OwnerName, string OwnerPass)
+        {
+            string nameLower = OwnerName.ToLower();
+            string passLower = OwnerPass.ToLower(); 
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = $"SELECT * FROM Owners WHERE OwnerName = '{nameLower}' AND OwnerPass = '{passLower}'"
+            };
+            int cnt = command.ExecuteReader().StepCount;
+            return cnt;
+        }
+
+        //Select owner for insert new task.
+        static public string SelectOwner(string OwnerName)
+        {
+            string nameOwner = "";
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = $"SELECT ProjectOwner FROM Projects INNER JOIN Owners ON Projects.ProjectOwner = Owners.OwnerID WHERE Owners.OwnerName = '{OwnerName}'"
+            };
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    nameOwner = reader.GetValue(0).ToString();
+                }                  
+            }
+            return nameOwner;
+        }
+
+        //Select projects.
+        static public bool SelectProjects(string OwnerName)
+        {
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = $"SELECT Projects.ProjectName FROM Projects INNER JOIN Owners ON Projects.ProjectOwner = Owners.OwnerID WHERE Owners.OwnerName = '{OwnerName}'"
+            };
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    ((MainWindow)Application.Current.MainWindow).listProjects.Items.Add(reader[0].ToString());
+                }
+            }
+            return true;
+        }
+
+        //Insert project in database.
+        static public bool InsertProject(string projectName, string ownerProject)
+        {
+            string sqlFormattedDate = DateTime.Today.ToString("dd.MM.yyyy");
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = $"INSERT INTO Projects(ProjectName, ProjectOwner, ProjectDate) VALUES('{projectName}', " + 
+                $"(SELECT Owners.OwnerID FROM Owners INNER JOIN Projects ON Projects.ProjectOwner = Owners.OwnerID WHERE Owners.OwnerName = '{ownerProject}'), '{sqlFormattedDate}')"
+            };
+            if (command.ExecuteNonQuery() == 1)
+            {
+                Debug.WriteLine("Success!");
+            }
+            else
+            {
+                Debug.WriteLine("Not Added!");
+            }
+            return true;
+        }
+
+        //Select priority.
+        static public string[] SelectPriority()
+        {
+            List<string> list = new();
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = "SELECT PriorityName FROM Priorities"
+            };
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while(reader.Read())
+                {
+                    list.Add(reader.GetString(0));           
+                }                
+            }
+            return list.ToArray();
+        }
+
+        //Insert task in database.
+        static public bool InsertTask(string taskName, string projectName, string taskPriority, string taskStart, string taskEnd)
+        {
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = $"INSERT INTO Tasks(TaskName, ProjectID, TaskPriority, TaskStart, TaskEnd, TaskProgress) VALUES('{taskName}', '{projectName}', '{taskPriority}'," +
+                $"'{taskStart}', '{taskEnd}', 1)"
+            };
+            if (command.ExecuteNonQuery() == 1)
+            {
+                Debug.WriteLine("Success!");
+            }
+            else
+            {
+                Debug.WriteLine("Not Added!");
+            }
+            return true;
+        }
+    }
+}
