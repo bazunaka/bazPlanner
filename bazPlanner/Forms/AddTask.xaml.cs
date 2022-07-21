@@ -1,27 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using bazPlanner.Models;
 
 namespace bazPlanner.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для AddTask.xaml
-    /// </summary>
     public partial class AddTask : Window
     {
+        //Add new task.
         public AddTask()
         {
             InitializeComponent();
+            //Add items to ComboBox from Database table.
+            for(int i = 0; i < 3; i++)
+            {
+                comboPriority.Items.Add(Database.SelectPriority()[i]);
+            }     
         }
     }
 }

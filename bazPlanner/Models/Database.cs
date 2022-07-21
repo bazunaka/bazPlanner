@@ -2,6 +2,8 @@
 using System.Windows;
 using System.Data.SQLite;
 using System.Diagnostics;
+using bazPlanner.Forms;
+using System.Collections.Generic;
 
 namespace bazPlanner.Models
 {
@@ -77,6 +79,25 @@ namespace bazPlanner.Models
                 Debug.WriteLine("Not Added!");
             }
             return true;
+        }
+
+        //Select priority.
+        static public string[] SelectPriority()
+        {
+            List<string> list = new List<string>();
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = "SELECT PriorityName FROM Priorities"
+            };
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while(reader.Read())
+                {
+                    list.Add(reader.GetString(0));           
+                }                
+            }
+            return list.ToArray();
         }
     }
 }
