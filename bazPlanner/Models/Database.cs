@@ -42,6 +42,25 @@ namespace bazPlanner.Models
             return cnt;
         }
 
+        //Select owner for insert new task.
+        static public string SelectOwner(string OwnerName)
+        {
+            string nameOwner = "";
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = $"SELECT ProjectOwner FROM Projects INNER JOIN Owners ON Projects.ProjectOwner = Owners.OwnerID WHERE Owners.OwnerName = '{OwnerName}'"
+            };
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    nameOwner = reader.GetValue(0).ToString();
+                }                  
+            }
+            return nameOwner;
+        }
+
         //Select projects.
         static public bool SelectProjects(string OwnerName)
         {
@@ -69,7 +88,6 @@ namespace bazPlanner.Models
                 CommandText = $"INSERT INTO Projects(ProjectName, ProjectOwner, ProjectDate) VALUES('{projectName}', " + 
                 $"(SELECT Owners.OwnerID FROM Owners INNER JOIN Projects ON Projects.ProjectOwner = Owners.OwnerID WHERE Owners.OwnerName = '{ownerProject}'), '{sqlFormattedDate}')"
             };
-            //command.ExecuteNonQuery();
             if (command.ExecuteNonQuery() == 1)
             {
                 Debug.WriteLine("Success!");
@@ -84,7 +102,7 @@ namespace bazPlanner.Models
         //Select priority.
         static public string[] SelectPriority()
         {
-            List<string> list = new List<string>();
+            List<string> list = new();
             command = new SQLiteCommand(connection)
             {
                 CommandText = "SELECT PriorityName FROM Priorities"
@@ -98,6 +116,25 @@ namespace bazPlanner.Models
                 }                
             }
             return list.ToArray();
+        }
+
+        //Insert task in database.
+        static public bool InsertTask(string taskName, string projectName, string taskPriority, string taskStart, string taskEnd)
+        {
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = $"INSERT INTO Tasks(TaskName, ProjectID, TaskPriority, TaskStart, TaskEnd, TaskProgress) VALUES('{taskName}', '{projectName}', '{taskPriority}'," +
+                $"'{taskStart}', '{taskEnd}', 1)"
+            };
+            if (command.ExecuteNonQuery() == 1)
+            {
+                Debug.WriteLine("Success!");
+            }
+            else
+            {
+                Debug.WriteLine("Not Added!");
+            }
+            return true;
         }
     }
 }

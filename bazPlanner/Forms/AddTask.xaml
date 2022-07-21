@@ -24,11 +24,11 @@
         <Label Grid.Row="2" VerticalContentAlignment="Center" Content="Начало задачи"/>
         <Label Grid.Row="3" VerticalContentAlignment="Center" Content="Окончание задачи"/>
         <Label Grid.Row="4" VerticalContentAlignment="Center"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="10,15,10,15"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="10,15,10,15" Name="textNameTask"/>
         <ComboBox Grid.Row="1" Grid.Column="1" Margin="10,15,10,15" x:Name="comboPriority">
         </ComboBox>
-        <DatePicker Grid.Row="2" Grid.Column="1" Margin="10,15,10,15"/>
-        <DatePicker Grid.Row="3" Grid.Column="1" Margin="10,15,10,15"/>
-        <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="100,10,100,10" Content="Добавить"/>
+        <DatePicker Grid.Row="2" Grid.Column="1" Margin="10,15,10,15" Name="dateTaskStart"/>
+        <DatePicker Grid.Row="3" Grid.Column="1" Margin="10,15,10,15" Name="dateTaskEnd"/>
+        <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="100,10,100,10" Content="Добавить" Click="AddNewTask"/>
     </Grid>
 </Window>

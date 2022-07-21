@@ -16,5 +16,12 @@ namespace bazPlanner.Forms
                 comboPriority.Items.Add(Database.SelectPriority()[i]);
             }     
         }
+
+        //Add new task in table of database.
+        private void AddNewTask(object sender, RoutedEventArgs e)
+        {
+            string ProjectID = Database.SelectOwner(((MainWindow)Application.Current.MainWindow).labelAuth.Content.ToString());
+            Database.InsertTask(textNameTask.Text, ProjectID, comboPriority.Text.ToString(), dateTaskStart.Text.ToString(), dateTaskEnd.Text.ToString());
+        }
     }
 }
