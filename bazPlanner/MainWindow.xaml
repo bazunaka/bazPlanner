@@ -42,7 +42,8 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="0" FontSize="14" HorizontalContentAlignment="Center" Name="labelNameProject">Название проекта</Label>
             <DataGrid Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="2,5,2,8"/>
-            <Button Grid.Row="2" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="2,2,5,2" Width="120" HorizontalAlignment="Left">Добавить задачу</Button>
+            <Button Grid.Row="2" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Margin="2,2,5,2" Width="120" HorizontalAlignment="Left" Click="AddTask">Добавить задачу</Button>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="2">
             <Grid.RowDefinitions>

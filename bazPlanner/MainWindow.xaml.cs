@@ -42,5 +42,15 @@ namespace bazPlanner
         {
             labelNameProject.Content = listProjects.SelectedItem.ToString();
         }
+
+        private void AddTask(object sender, RoutedEventArgs e)
+        {
+            //Show form for add new task.
+            AddTask addTask = new()
+            {
+                Owner = this
+            };
+            addTask.Show(); 
+        }
     }
 }
