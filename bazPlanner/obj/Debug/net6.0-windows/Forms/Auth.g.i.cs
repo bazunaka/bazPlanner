@@ -69,7 +69,7 @@ namespace bazPlanner.Forms {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/bazPlanner;V1.0.0.0;component/forms/auth.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/bazPlanner;component/forms/auth.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Forms\Auth.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

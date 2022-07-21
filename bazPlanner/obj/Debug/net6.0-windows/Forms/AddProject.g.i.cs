@@ -61,7 +61,7 @@ namespace bazPlanner.Forms {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/bazPlanner;V1.0.0.0;component/forms/addproject.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/bazPlanner;component/forms/addproject.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Forms\AddProject.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

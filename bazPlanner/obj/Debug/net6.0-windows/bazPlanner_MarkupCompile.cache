@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 G:\github\bazPlanner\bazPlanner\App.xaml
-3996760358
+4-1689424578
 
-71816228748
+8-697087975
 217-1283939252
-Forms\AddProject.xaml;Forms\Auth.xaml;MainWindow.xaml;
+Forms\AddProject.xaml;Forms\AddTask.xaml;Forms\Auth.xaml;MainWindow.xaml;
 
 False
 

@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bazPlanner.Forms"
         mc:Ignorable="d"
-        Title="AddTask" Height="450" Width="800">
+        Title="Добавить задачу" Height="300" Width="350" ResizeMode="NoResize">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" VerticalContentAlignment="Center">Название задачи</Label>
+        <Label Grid.Row="1" VerticalContentAlignment="Center">Приоритет</Label>
+        <Label Grid.Row="2" VerticalContentAlignment="Center">Начало задачи</Label>
+        <Label Grid.Row="3" VerticalContentAlignment="Center">Окончание задачи</Label>
+        <Label Grid.Row="4" VerticalContentAlignment="Center"></Label>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="10,15,10,15"></TextBox>
+        <ComboBox Grid.Row="1" Grid.Column="1" Margin="10,15,10,15"></ComboBox>
+        <DatePicker Grid.Row="2" Grid.Column="1" Margin="10,15,10,15"></DatePicker>
+        <DatePicker Grid.Row="3" Grid.Column="1" Margin="10,15,10,15"></DatePicker>
     </Grid>
 </Window>

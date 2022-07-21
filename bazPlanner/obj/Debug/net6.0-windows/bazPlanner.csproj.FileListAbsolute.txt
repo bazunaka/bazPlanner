@@ -72,3 +72,6 @@ G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\bazPlanner_MarkupCompil
 G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\Forms\Auth.baml
 G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\Forms\AddProject.g.cs
 G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\Forms\AddProject.baml
+G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\Forms\AddTask.g.cs
+G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\App.baml
+G:\github\bazPlanner\bazPlanner\obj\Debug\net6.0-windows\Forms\AddTask.baml
