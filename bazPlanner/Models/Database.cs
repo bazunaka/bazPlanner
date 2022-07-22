@@ -139,17 +139,19 @@ namespace bazPlanner.Models
         }
 
         //Select task for DataGrid.
-        static public void SelectTask(string projectName)
+        static public void SelectTask()
         {
             command = new SQLiteCommand(connection)
             {
-                CommandText = $"SELECT TaskID, TaskName, TaskPriority FROM Tasks INNER JOIN Projects ON Projects.ProjectID = Tasks.ProjectID WHERE Projects.ProjectName = '{projectName}'"
+                //CommandText = $"SELECT TaskID, TaskName, TaskPriority FROM Tasks INNER JOIN Projects ON Projects.ProjectID = Tasks.ProjectID WHERE Projects.ProjectName = '{projectName}'"
+                CommandText = "SELECT TaskID, TaskName FROM Tasks"
+
             };
             //SQLiteDataReader reader = command.ExecuteReader();
-            DataTable dt = new DataTable();
+            DataSet _Bind = new DataSet();
             SQLiteDataAdapter da = new SQLiteDataAdapter(command);
-            da.Fill(dt);
-            ((MainWindow)Application.Current.MainWindow).dataGrid.DataContext = dt;
+            da.Fill(_Bind, "MyDataBinding");
+            ((MainWindow)Application.Current.MainWindow).dataGrid.DataContext = _Bind;
         }
     }
 }
