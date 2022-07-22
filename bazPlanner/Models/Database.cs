@@ -86,8 +86,10 @@ namespace bazPlanner.Models
             string sqlFormattedDate = DateTime.Today.ToString("dd.MM.yyyy");
             command = new SQLiteCommand(connection)
             {
-                CommandText = $"INSERT INTO Projects(ProjectName, ProjectOwner, ProjectDate) VALUES('{projectName}', " + 
-                $"(SELECT Owners.OwnerID FROM Owners INNER JOIN Projects ON Projects.ProjectOwner = Owners.OwnerID WHERE Owners.OwnerName = '{ownerProject}'), '{sqlFormattedDate}')"
+                //CommandText = $"INSERT INTO Projects(ProjectName, ProjectOwner, ProjectDate) VALUES('{projectName}', " + 
+                //$"(SELECT Owners.OwnerID FROM Owners INNER JOIN Projects ON Projects.ProjectOwner = Owners.OwnerID WHERE Owners.OwnerName = '{ownerProject}'), '{sqlFormattedDate}')"
+                CommandText = $"INSERT INTO Projects(ProjectName, ProjectOwner, ProjectDate) VALUES('{projectName}', " +
+                $"(SELECT Owners.OwnerID FROM Owners WHERE Owners.OwnerName = '{ownerProject}'), '{sqlFormattedDate}')"
             };
             if (command.ExecuteNonQuery() == 1)
             {
@@ -141,12 +143,6 @@ namespace bazPlanner.Models
         //Select task for DataGrid.
         static public void SelectTask(string projectName)
         {
-            /*command = new SQLiteCommand(connection)
-            {
-                CommandText = $"SELECT TaskID, TaskName, TaskProgress, TaskStart, TaskEnd, TaskProgress FROM Tasks INNER JOIN Projects, Progress " +
-                $"ON Projects.ProjectID = Tasks.ProjectID WHERE Projects.ProjectName = '{projectName}'"
-
-            };*/
             command = new SQLiteCommand(connection)
             {
                 CommandText = $"SELECT Tasks.TaskID, Tasks.TaskName, Priorities.PriorityName, Tasks.TaskStart, Tasks.TaskEnd, Progress.ProgressName FROM Tasks INNER JOIN Priorities ON " +
