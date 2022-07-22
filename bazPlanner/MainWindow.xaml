@@ -42,7 +42,13 @@
                 <RowDefinition Height="0.11*"></RowDefinition>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" FontSize="14" HorizontalContentAlignment="Center" Name="labelNameProject">Название проекта</Label>
-            <DataGrid Grid.Row="1" Margin="2,5,2,8" Name="dataGrid" AutoGenerateColumns="True" ItemsSource="{Binding Path=MyDataBinding}">
+            <DataGrid Grid.Row="1" Margin="2,5,2,5" Name="dataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Path=MyDataBinding}" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ИД" Binding="{Binding Path=TaskID}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Path=TaskName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Прогресс" Binding="{Binding Path=TaskProgress}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Начало задачи" Binding="{Binding Path=TaskStart}"></DataGridTextColumn>
+                </DataGrid.Columns>
             </DataGrid>
                 <Button Grid.Row="2" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                     Margin="2,2,5,2" Width="120" HorizontalAlignment="Left" Click="AddTask" IsEnabled="False" Name="buttonAddTask">Добавить задачу</Button>

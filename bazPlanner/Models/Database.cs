@@ -120,7 +120,7 @@ namespace bazPlanner.Models
         }
 
         //Insert task in database.
-        static public bool InsertTask(string taskName, string projectID, string taskPriority, DateTime? taskStart, DateTime? taskEnd)
+        static public bool InsertTask(string taskName, string projectID, string taskPriority,string taskStart, string taskEnd)
         {
             command = new SQLiteCommand(connection)
             {
@@ -144,12 +144,12 @@ namespace bazPlanner.Models
             command = new SQLiteCommand(connection)
             {
                 //CommandText = $"SELECT TaskID, TaskName, TaskPriority FROM Tasks INNER JOIN Projects ON Projects.ProjectID = Tasks.ProjectID WHERE Projects.ProjectName = '{projectName}'"
-                CommandText = "SELECT TaskID, TaskName FROM Tasks"
+                CommandText = "SELECT TaskID, TaskName, TaskProgress, TaskStart FROM Tasks"
 
             };
             //SQLiteDataReader reader = command.ExecuteReader();
-            DataSet _Bind = new DataSet();
-            SQLiteDataAdapter da = new SQLiteDataAdapter(command);
+            DataSet _Bind = new();
+            SQLiteDataAdapter da = new(command);
             da.Fill(_Bind, "MyDataBinding");
             ((MainWindow)Application.Current.MainWindow).dataGrid.DataContext = _Bind;
         }
