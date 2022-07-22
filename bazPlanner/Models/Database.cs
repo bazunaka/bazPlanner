@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.Diagnostics;
 using bazPlanner.Forms;
 using System.Collections.Generic;
+using System.Data;
 
 namespace bazPlanner.Models
 {
@@ -43,22 +44,22 @@ namespace bazPlanner.Models
         }
 
         //Select owner for insert new task.
-        static public string SelectOwner(string OwnerName)
+        static public string SelectOwner(string ProjectName)
         {
-            string nameOwner = "";
+            string projectID = "";
             command = new SQLiteCommand(connection)
             {
-                CommandText = $"SELECT ProjectOwner FROM Projects INNER JOIN Owners ON Projects.ProjectOwner = Owners.OwnerID WHERE Owners.OwnerName = '{OwnerName}'"
+                CommandText = $"SELECT Projects.ProjectID FROM Projects WHERE Projects.ProjectName = '{ProjectName}'"
             };
             SQLiteDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    nameOwner = reader.GetValue(0).ToString();
+                    projectID = reader.GetValue(0).ToString();
                 }                  
             }
-            return nameOwner;
+            return projectID;
         }
 
         //Select projects.
@@ -119,11 +120,11 @@ namespace bazPlanner.Models
         }
 
         //Insert task in database.
-        static public bool InsertTask(string taskName, string projectName, string taskPriority, string taskStart, string taskEnd)
+        static public bool InsertTask(string taskName, string projectID, string taskPriority, DateTime? taskStart, DateTime? taskEnd)
         {
             command = new SQLiteCommand(connection)
             {
-                CommandText = $"INSERT INTO Tasks(TaskName, ProjectID, TaskPriority, TaskStart, TaskEnd, TaskProgress) VALUES('{taskName}', '{projectName}', '{taskPriority}'," +
+                CommandText = $"INSERT INTO Tasks(TaskName, ProjectID, TaskPriority, TaskStart, TaskEnd, TaskProgress) VALUES('{taskName}', '{projectID}', '{taskPriority}'," +
                 $"'{taskStart}', '{taskEnd}', 1)"
             };
             if (command.ExecuteNonQuery() == 1)
@@ -135,6 +136,20 @@ namespace bazPlanner.Models
                 Debug.WriteLine("Not Added!");
             }
             return true;
+        }
+
+        //Select task for DataGrid.
+        static public void SelectTask(string projectName)
+        {
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = $"SELECT TaskID, TaskName, TaskPriority FROM Tasks INNER JOIN Projects ON Projects.ProjectID = Tasks.ProjectID WHERE Projects.ProjectName = '{projectName}'"
+            };
+            //SQLiteDataReader reader = command.ExecuteReader();
+            DataTable dt = new DataTable();
+            SQLiteDataAdapter da = new SQLiteDataAdapter(command);
+            da.Fill(dt);
+            ((MainWindow)Application.Current.MainWindow).dataGrid.DataContext = dt;
         }
     }
 }

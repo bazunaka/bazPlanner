@@ -20,8 +20,9 @@ namespace bazPlanner.Forms
         //Add new task in table of database.
         private void AddNewTask(object sender, RoutedEventArgs e)
         {
-            string ProjectID = Database.SelectOwner(((MainWindow)Application.Current.MainWindow).labelAuth.Content.ToString());
-            Database.InsertTask(textNameTask.Text, ProjectID, comboPriority.Text.ToString(), dateTaskStart.Text.ToString(), dateTaskEnd.Text.ToString());
+            Debug.WriteLine(dateTaskStart.SelectedDate);
+            string ProjectID = Database.SelectOwner(((MainWindow)Application.Current.MainWindow).listProjects.SelectedItem.ToString());
+            Database.InsertTask(textNameTask.Text, ProjectID, comboPriority.Text.ToString(), dateTaskStart.SelectedDate, dateTaskEnd.SelectedDate);
         }
     }
 }

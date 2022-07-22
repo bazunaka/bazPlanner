@@ -19,11 +19,13 @@ namespace bazPlanner.Forms
                 Debug.WriteLine("Success!");
                 ((MainWindow)Application.Current.MainWindow).labelAuth.Content = textOwnerName.Text;
                 Database.SelectProjects(textOwnerName.Text);
+                ((MainWindow)Application.Current.MainWindow).buttonAddProject.IsEnabled = true;
+                ((MainWindow)Application.Current.MainWindow).buttonAddTask.IsEnabled = true;
             }
             else
             {
                 Debug.WriteLine("Abort!");
-            }
+            }           
             Close();
         }
     }
