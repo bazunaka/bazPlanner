@@ -15,8 +15,6 @@ namespace bazPlanner
             //Now time.
             DateTime now = DateTime.Now;
             labelTime.Content = now.ToString("D");
-
-            Database.SelectTask();
         }
 
         //Show form for auth.
@@ -43,7 +41,7 @@ namespace bazPlanner
         private void listProjects_Selected(object sender, RoutedEventArgs e)
         {
             labelNameProject.Content = listProjects.SelectedItem.ToString();
-            //Database.SelectTask(listProjects.SelectedItem.ToString());
+            Database.SelectTask(listProjects.SelectedItem.ToString());
         }
 
         private void AddTask(object sender, RoutedEventArgs e)

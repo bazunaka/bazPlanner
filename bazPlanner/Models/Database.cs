@@ -120,7 +120,7 @@ namespace bazPlanner.Models
         }
 
         //Insert task in database.
-        static public bool InsertTask(string taskName, string projectID, string taskPriority,string taskStart, string taskEnd)
+        static public bool InsertTask(string taskName, string projectID, int taskPriority, string taskStart, string taskEnd)
         {
             command = new SQLiteCommand(connection)
             {
@@ -139,15 +139,20 @@ namespace bazPlanner.Models
         }
 
         //Select task for DataGrid.
-        static public void SelectTask()
+        static public void SelectTask(string projectName)
         {
+            /*command = new SQLiteCommand(connection)
+            {
+                CommandText = $"SELECT TaskID, TaskName, TaskProgress, TaskStart, TaskEnd, TaskProgress FROM Tasks INNER JOIN Projects, Progress " +
+                $"ON Projects.ProjectID = Tasks.ProjectID WHERE Projects.ProjectName = '{projectName}'"
+
+            };*/
             command = new SQLiteCommand(connection)
             {
-                //CommandText = $"SELECT TaskID, TaskName, TaskPriority FROM Tasks INNER JOIN Projects ON Projects.ProjectID = Tasks.ProjectID WHERE Projects.ProjectName = '{projectName}'"
-                CommandText = "SELECT TaskID, TaskName, TaskProgress, TaskStart FROM Tasks"
-
+                CommandText = $"SELECT Tasks.TaskID, Tasks.TaskName, Priorities.PriorityName, Tasks.TaskStart, Tasks.TaskEnd, Progress.ProgressName FROM Tasks INNER JOIN Priorities ON " +
+                $"Tasks.TaskPriority = Priorities.PriorityID INNER JOIN Progress ON Tasks.TaskProgress = Progress.ProgressID INNER JOIN Projects ON Tasks.ProjectID = Projects.ProjectID " +
+                $"WHERE Projects.ProjectName = '{projectName}'"
             };
-            //SQLiteDataReader reader = command.ExecuteReader();
             DataSet _Bind = new();
             SQLiteDataAdapter da = new(command);
             da.Fill(_Bind, "MyDataBinding");

@@ -22,7 +22,7 @@ namespace bazPlanner.Forms
         {
             Debug.WriteLine(dateTaskStart.SelectedDate);
             string ProjectID = Database.SelectOwner(((MainWindow)Application.Current.MainWindow).listProjects.SelectedItem.ToString());
-            Database.InsertTask(textNameTask.Text, ProjectID, comboPriority.Text.ToString(), dateTaskStart.SelectedDate.ToString(), dateTaskEnd.SelectedDate.ToString());
+            Database.InsertTask(textNameTask.Text, ProjectID, comboPriority.SelectedIndex + 1, dateTaskStart.SelectedDate.ToString(), dateTaskEnd.SelectedDate.ToString());
         }
     }
 }

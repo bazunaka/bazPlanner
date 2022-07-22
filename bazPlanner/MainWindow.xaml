@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="bazPlanner-WPF-NETCore" Height="480" Width="800" MinHeight="480" MinWidth="800">
+        Title="bazPlanner-WPF-NETCore" Height="500" Width="1000" MinHeight="500" MinWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
@@ -46,8 +46,10 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ИД" Binding="{Binding Path=TaskID}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Название" Binding="{Binding Path=TaskName}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Прогресс" Binding="{Binding Path=TaskProgress}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Приоритет" Binding="{Binding Path=PriorityName}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Начало задачи" Binding="{Binding Path=TaskStart}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Конец задачи" Binding="{Binding Path=TaskEnd}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Прогресс" Binding="{Binding Path=ProgressName}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
                 <Button Grid.Row="2" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
