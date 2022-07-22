@@ -44,12 +44,12 @@
             <Label Grid.Row="0" FontSize="14" HorizontalContentAlignment="Center" Name="labelNameProject">Название проекта</Label>
             <DataGrid Grid.Row="1" Margin="2,5,2,5" Name="dataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Path=MyDataBinding}" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ИД" Binding="{Binding Path=TaskID}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Название" Binding="{Binding Path=TaskName}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Приоритет" Binding="{Binding Path=PriorityName}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Начало задачи" Binding="{Binding Path=TaskStart}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Конец задачи" Binding="{Binding Path=TaskEnd}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Прогресс" Binding="{Binding Path=ProgressName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="ИД" Binding="{Binding Path=TaskID}" Width="0.15*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Path=TaskName}" Width="0.65*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Приоритет" Binding="{Binding Path=PriorityName}" Width="0.4*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Начало задачи" Binding="{Binding Path=TaskStart}" Width="0.42*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Конец задачи" Binding="{Binding Path=TaskEnd}" Width="0.42*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Прогресс" Binding="{Binding Path=ProgressName}" Width="0.4*"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
                 <Button Grid.Row="2" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"

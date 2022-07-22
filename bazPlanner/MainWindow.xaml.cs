@@ -11,7 +11,7 @@ namespace bazPlanner
         {
             InitializeComponent();
             //Connect to database.
-            Database.Connect();
+            Database.Connect("test.db");
             //Now time.
             DateTime now = DateTime.Now;
             labelTime.Content = now.ToString("D");

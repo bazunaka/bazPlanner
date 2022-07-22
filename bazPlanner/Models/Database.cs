@@ -8,16 +8,16 @@ using System.Data;
 
 namespace bazPlanner.Models
 {
-    class Database
+    public class Database
     {
         public static SQLiteConnection? connection;
         public static SQLiteCommand? command;
         //Create connection. 
-        static public bool Connect()
+        static public bool Connect(string nameDatabaseFile)
         {
             try
             {
-                connection = new SQLiteConnection("Data Source=test.db; Version=3; FailIfMissing=False");
+                connection = new SQLiteConnection($"Data Source='{nameDatabaseFile}'; Version=3; FailIfMissing=False");
                 connection.Open();
                 Debug.WriteLine("Connected!");
                 return true;
