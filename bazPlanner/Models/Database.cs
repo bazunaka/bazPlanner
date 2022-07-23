@@ -86,19 +86,10 @@ namespace bazPlanner.Models
             string sqlFormattedDate = DateTime.Today.ToString("dd.MM.yyyy");
             command = new SQLiteCommand(connection)
             {
-                //CommandText = $"INSERT INTO Projects(ProjectName, ProjectOwner, ProjectDate) VALUES('{projectName}', " + 
-                //$"(SELECT Owners.OwnerID FROM Owners INNER JOIN Projects ON Projects.ProjectOwner = Owners.OwnerID WHERE Owners.OwnerName = '{ownerProject}'), '{sqlFormattedDate}')"
                 CommandText = $"INSERT INTO Projects(ProjectName, ProjectOwner, ProjectDate) VALUES('{projectName}', " +
                 $"(SELECT Owners.OwnerID FROM Owners WHERE Owners.OwnerName = '{ownerProject}'), '{sqlFormattedDate}')"
             };
-            if (command.ExecuteNonQuery() == 1)
-            {
-                Debug.WriteLine("Success!");
-            }
-            else
-            {
-                Debug.WriteLine("Not Added!");
-            }
+            Debug.WriteLine(command.ExecuteNonQuery() == 1 ? "Success!" : "Not Added!");
             return true;
         }
 
@@ -129,14 +120,7 @@ namespace bazPlanner.Models
                 CommandText = $"INSERT INTO Tasks(TaskName, ProjectID, TaskPriority, TaskStart, TaskEnd, TaskProgress) VALUES('{taskName}', '{projectID}', '{taskPriority}'," +
                 $"'{taskStart}', '{taskEnd}', 1)"
             };
-            if (command.ExecuteNonQuery() == 1)
-            {
-                Debug.WriteLine("Success!");
-            }
-            else
-            {
-                Debug.WriteLine("Not Added!");
-            }
+            Debug.WriteLine(command.ExecuteNonQuery() == 1 ? "Success!" : "Not Added!");
             return true;
         }
 
