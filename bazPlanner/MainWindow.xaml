@@ -16,7 +16,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="0.4*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Background="#0077ff">
+        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Background="#828282">
             <MenuItem Header="Подключиться к БД" Height="30" Click="FormAuth" Foreground="#FFFFFF"></MenuItem>
             <MenuItem Header="Menu2" IsEnabled="False"></MenuItem>
             <MenuItem Header="Menu3" IsEnabled="False"></MenuItem>
@@ -24,7 +24,7 @@
             <MenuItem Header="Menu5" IsEnabled="False"></MenuItem>
             <MenuItem Header="Menu6" IsEnabled="False"></MenuItem>
         </Menu>
-        <Label Grid.Column="2" Grid.Row="0" Background="#0077ff" Name="labelAuth" Foreground="#FFFFFF">Unregistered!</Label>
+        <Label Grid.Column="2" Grid.Row="0" Background="#828282" Name="labelAuth" Foreground="#FFFFFF">Unregistered!</Label>
         <Grid Grid.Row="1" Width="auto">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
@@ -54,6 +54,10 @@
             </DataGrid>
                 <Button Grid.Row="2" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                     Margin="2,2,5,2" Width="120" HorizontalAlignment="Left" Click="AddTask" IsEnabled="False" Name="buttonAddTask">Добавить задачу</Button>
+                <Button Grid.Row="2" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Margin="125,2,5,2" Width="130" HorizontalAlignment="Left" Click="AddTask" IsEnabled="False" Name="buttonUpdateTask">Редактировать задачу</Button>
+                <Button Grid.Row="2" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Margin="258,2,5,2" Width="120" HorizontalAlignment="Left" Click="AddTask" IsEnabled="False" Name="buttonDeleteTask">Удалить задачу</Button>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="2">
             <Grid.RowDefinitions>

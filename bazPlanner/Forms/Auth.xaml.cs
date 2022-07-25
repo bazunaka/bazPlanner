@@ -21,6 +21,8 @@ namespace bazPlanner.Forms
                 Database.SelectProjects(textOwnerName.Text);
                 ((MainWindow)Application.Current.MainWindow).buttonAddProject.IsEnabled = true;
                 ((MainWindow)Application.Current.MainWindow).buttonAddTask.IsEnabled = true;
+                ((MainWindow)Application.Current.MainWindow).buttonUpdateTask.IsEnabled = true;
+                ((MainWindow)Application.Current.MainWindow).buttonDeleteTask.IsEnabled = true;
             }
             else
             {

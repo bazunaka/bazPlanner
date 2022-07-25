@@ -121,6 +121,7 @@ namespace bazPlanner.Models
                 $"'{taskStart}', '{taskEnd}', 1)"
             };
             Debug.WriteLine(command.ExecuteNonQuery() == 1 ? "Success!" : "Not Added!");
+            ((MainWindow)Application.Current.MainWindow).dataGrid.UpdateLayout();
             return true;
         }
 
@@ -137,6 +138,27 @@ namespace bazPlanner.Models
             SQLiteDataAdapter da = new(command);
             da.Fill(_Bind, "MyDataBinding");
             ((MainWindow)Application.Current.MainWindow).dataGrid.DataContext = _Bind;
+        }
+
+        //Update task.
+        static public void UpdateTask(int selectedTask)
+        {
+            /*command = new SQLiteCommand(connection)
+            {
+                CommandText = $"SELECT Tasks.TaskID, Tasks.TaskName, Priorities.PriorityName, Tasks.TaskStart, Tasks.TaskEnd, Progress.ProgressName FROM Tasks INNER JOIN Priorities ON " +
+                $"Tasks.TaskPriority = Priorities.PriorityID INNER JOIN Progress ON Tasks.TaskProgress = Progress.ProgressID INNER JOIN Projects ON Tasks.ProjectID = Projects.ProjectID " +
+                $"WHERE Projects.ProjectName = '{projectName}'"
+            };
+            DataSet _Bind = new();
+            SQLiteDataAdapter da = new(command);
+            da.Fill(_Bind, "MyDataBinding");
+            ((MainWindow)Application.Current.MainWindow).dataGrid.DataContext = _Bind;*/
+        }
+
+        //Delete task.
+        static public void DeleteTask(int selectedTask)
+        {
+
         }
     }
 }

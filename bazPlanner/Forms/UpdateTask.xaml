@@ -1,0 +1,34 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bazPlanner.Forms"
+        xmlns:Sqlite="clr-namespace:Microsoft.Data.Sqlite;assembly=Microsoft.Data.Sqlite" x:Name="UpdateTaskForm" x:Class="bazPlanner.Forms.UpdateTask"
+        mc:Ignorable="d"
+        Title="Добавить задачу" Height="300" Width="350" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" VerticalContentAlignment="Center" Content="Название задачи"/>
+        <Label Grid.Row="1" VerticalContentAlignment="Center" Content="Приоритет"/>
+        <Label Grid.Row="2" VerticalContentAlignment="Center" Content="Начало задачи"/>
+        <Label Grid.Row="3" VerticalContentAlignment="Center" Content="Окончание задачи"/>
+        <Label Grid.Row="4" VerticalContentAlignment="Center"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="10,15,10,15" Name="textNameTask"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" Margin="10,15,10,15" x:Name="comboPriority">
+        </ComboBox>
+        <DatePicker Grid.Row="2" Grid.Column="1" Margin="10,15,10,15" Name="dateTaskStart" IsEnabled="False"/>
+        <DatePicker Grid.Row="3" Grid.Column="1" Margin="10,15,10,15" Name="dateTaskEnd"/>
+        <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="100,10,100,10" Content="Добавить" Click="UpdateThisTask"/>
+    </Grid>
+</Window>
