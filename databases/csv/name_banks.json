@@ -1,0 +1,40 @@
+{
+  "RECORDS": [
+    {
+      "id_bank": 1,
+      "name_bank": "Сбербанк"
+    },
+    {
+      "id_bank": 2,
+      "name_bank": "Альфа-банк"
+    },
+    {
+      "id_bank": 3,
+      "name_bank": "ВТБ"
+    },
+    {
+      "id_bank": 4,
+      "name_bank": "Тинькофф"
+    },
+    {
+      "id_bank": 5,
+      "name_bank": "ПСБ"
+    },
+    {
+      "id_bank": 6,
+      "name_bank": "Почта Банк"
+    },
+    {
+      "id_bank": 7,
+      "name_bank": "МКБ"
+    },
+    {
+      "id_bank": 8,
+      "name_bank": "Открытие Банк"
+    },
+    {
+      "id_bank": 9,
+      "name_bank": "БКС Инвестиции"
+    }
+  ]
+}
