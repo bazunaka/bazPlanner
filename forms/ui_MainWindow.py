@@ -8,6 +8,7 @@ from forms import (ui_name_banks, ui_connectDB, ui_exportDB, ui_importDB, ui_cre
                    ui_main_information, ui_backupDB, ui_restoreDB)
 
 from modules.database import Database
+from modules import main
 
 s = "Успешное подключение к БД."
 
