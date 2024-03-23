@@ -1,1 +1,0 @@
-insert into name_banks(name_bank) values ('Сбербанк'), ('Альфа-банк'), ('ВТБ'), ('Тинькофф')

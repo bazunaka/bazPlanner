@@ -107,7 +107,7 @@ class Ui_MainWindow(object):
         """
         MainWindow.resize(1000, 700)
         MainWindow.setMinimumSize(1000, 700)
-        MainWindow.setWindowTitle("bazFinance 0.0.2 - Финансовый калькулятор")
+        MainWindow.setWindowTitle(main.title_window_application)
 
         font = QtGui.QFont()
         font.setFamily("Helvetica")
