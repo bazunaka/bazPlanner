@@ -9,7 +9,7 @@ Names of variables:
 
 
 title_window_application = "bazPlanner 0.0.1 - Планировщик задач"
-title_applacation = "bazPlanner"
+title_application = "bazPlanner"
 
 
 
