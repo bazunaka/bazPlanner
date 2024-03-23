@@ -5,6 +5,7 @@ from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QMainWindow, QApplication
 
 from forms import ui_MainWindow
+from modules import main
 
 
 class MainWindow(QMainWindow):
@@ -15,9 +16,7 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == "__main__":
-    os.environ["QT_ENABLE_HIGHDPI_SCALING"] = "1"
-    os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
-    os.environ["QT_SCALE_FACTOR"] = "1"
+    main.os_environ()
     app = QApplication(sys.argv)  # создает объект приложения в виде экземпляра класса QApplication
     app.setApplicationName("bazPlanner - Планировщик задач")
     app.setApplicationVersion("0.0.1")
