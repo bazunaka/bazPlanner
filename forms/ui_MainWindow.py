@@ -8,8 +8,10 @@ from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
                          QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
                          QPixmap, QRadialGradient, QStandardItemModel, QStandardItem)
 from PyQt5.QtWidgets import *
-from modules import main
-from forms import ui_frame
+from modules import main, database
+
+db = database.Database()
+connection = db.qsql_connect_db("D:/GitHub/bazPlanner/databases/bazplanner_main.db")
 
 
 class Ui_MainWindow(object):
@@ -34,6 +36,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_3 = QVBoxLayout(self.widget)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
 
+        database.Database().create_strings_connection("win32")
+        database.Database().check_string_connect()
+
+        query = database.DatabaseProject().select("name_project", where=False, order_by=False)
+        model = database.DatabaseProject().view_model(query)
+
         self.groupBox = QGroupBox(self.widget)
         self.groupBox.setTitle("Проекты")
 
@@ -46,6 +54,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText("Удалить проект")
 
         self.listView = QListView(self.groupBox)
+        self.listView.setModel(model)
 
         self.checkBox = QCheckBox(self.groupBox)
         self.checkBox.setText("Показывать завершенные проекты")
@@ -169,14 +178,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_10.addLayout(self.horizontalLayout_3)
 
         self.tbl_main = QTableView(self.widget_2)
-        self.model = QStandardItemModel(0, 4)
-        self.model.setItem(0, 0, QStandardItem("Задача"))
-        self.model.setItem(0, 1, QStandardItem("Дата1"))
-        self.model.setItem(0, 2, QStandardItem("Дата2"))
-        self.model.setItem(0, 3, QStandardItem("24%"))
 
-
-        self.tbl_main.setModel(self.model)
         self.verticalLayout_10.addWidget(self.tbl_main)
 
         self.horizontalLayout_5.addWidget(self.widget_2)

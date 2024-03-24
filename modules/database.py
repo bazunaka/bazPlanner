@@ -17,8 +17,7 @@ settings_connection_strings = ""
 
 # Dictionaries for connection_strings from INI-file.
 dict_settings_string = {"win32": "connection_strings_win32", "macos": "connection_strings"}
-dict_connection_strings = {"banks": "", "categories": "", "credits": "", "deposits": "",
-                           "moexdata": "", "mortgage": "", "savings": "", "profits": "", "spend_money": ""}
+dict_connection_strings = {"main": ""}
 
 
 class Database:
@@ -31,14 +30,7 @@ class Database:
         :return: Dictionary with connections strings from INI-file.
         """
         setting_string = dict_settings_string[name_os]
-        dict_connection_strings["banks"] = settings.value(setting_string + '/connection_string_banksdb')
-        dict_connection_strings["categories"] = settings.value(setting_string + '/connection_string_categories')
-        dict_connection_strings["credits"] = settings.value(setting_string + '/connection_string_creditsdb')
-        dict_connection_strings["deposits"] = settings.value(setting_string + '/connection_string_depositsdb')
-        dict_connection_strings["moexdata"] = settings.value(setting_string + '/connection_string_moexdb')
-        dict_connection_strings["mortgage"] = settings.value(setting_string + '/connection_string_mortgagesdb')
-        dict_connection_strings["savings"] = settings.value(setting_string + '/connection_string_savingsdb')
-        dict_connection_strings["spend_money"] = settings.value(setting_string + '/connection_string_spendmoneydb')
+        dict_connection_strings["main"] = settings.value(setting_string + '/connection_string_maindb')
         return dict_connection_strings
 
     @staticmethod
@@ -186,9 +178,9 @@ class Database:
         query.exec()
 
 
-class DatabaseCredit(Database):
+class DatabaseProject(Database):
 
-    connection = Database.qsql_connect_db(dict_connection_strings["credits"])
+    connection = Database.qsql_connect_db(dict_connection_strings["main"])
 
     @staticmethod
     def insert_month_payments(connect, month_count, month_pay, last_id):
@@ -221,15 +213,15 @@ class DatabaseCredit(Database):
         connect.commit()
 
     @staticmethod
-    def view_model(query, dict_connection="credits") -> QSqlQueryModel:
+    def view_model(query, dict_connection="main") -> QSqlQueryModel:
         Database.qsql_connect_db(dict_connection_strings[dict_connection]).open()
         model = QSqlQueryModel()
         model.setQuery(query)
         return model
 
     @staticmethod
-    def select(*fields_name, table_name, where=True, where_field="",
-               where_value="", order_by=True, order_field="", order_value="ASC"):
+    def select(*fields_name, where=True, where_field="",
+               where_value="", order_by=True, order_field="", order_value="ASC", table_name="projects"):
         fields_format = ", ".join(fields_name)
 
         if where and order_by:
