@@ -6,7 +6,7 @@ from PyQt5.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
                           QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
 from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
                          QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
-                         QPixmap, QRadialGradient)
+                         QPixmap, QRadialGradient, QStandardItemModel, QStandardItem)
 from PyQt5.QtWidgets import *
 from modules import main
 from forms import ui_frame
@@ -14,12 +14,11 @@ from forms import ui_frame
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-
         MainWindow.setWindowTitle(main.title_window_application)
         MainWindow.setMinimumSize(QSize(main.determine_size_monitor()[0] * 0.5,
                                         main.determine_size_monitor()[1] * 0.3))
 
-        self.action   = QAction(MainWindow)
+        self.action = QAction(MainWindow)
         self.action_2 = QAction(MainWindow)
         self.action_4 = QAction(MainWindow)
         self.action_5 = QAction(MainWindow)
@@ -169,99 +168,16 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addLayout(self.horizontalLayout_3)
 
-        self.scrollArea = QScrollArea(self.widget_2)
-        self.scrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
-        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.scrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
-        self.scrollArea.setWidgetResizable(True)
-        # self.scrollAreaWidgetContents = QWidget()
-        # self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        # self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 709, 301))
-        # self.verticalLayout_9 = QVBoxLayout(self.scrollAreaWidgetContents)
-        # self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        # self.frame = QFrame()
-        # self.frame.setObjectName(u"frame")
-        # self.frame.setFrameShape(QFrame.StyledPanel)
-        # self.frame.setFrameShadow(QFrame.Raised)
-        # self.verticalLayout_8 = QVBoxLayout(self.frame)
-        # self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        # self.label_2 = QLabel(self.frame)
-        # self.label_2.setObjectName(u"label_2")
-        # font1 = QFont()
-        # font1.setPointSize(14)
-        # self.label_2.setFont(font1)
-        #
-        # self.verticalLayout_8.addWidget(self.label_2)
-        #
-        # self.horizontalLayout_4 = QHBoxLayout()
-        # self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        # self.lineEdit_2 = QLineEdit(self.frame)
-        # self.lineEdit_2.setObjectName(u"lineEdit_2")
-        # self.lineEdit_2.setFrame(True)
-        # self.lineEdit_2.setDragEnabled(False)
-        # self.lineEdit_2.setReadOnly(False)
-        # self.lineEdit_2.setClearButtonEnabled(False)
-        #
-        # self.horizontalLayout_4.addWidget(self.lineEdit_2)
-        #
-        # self.pushButton_10 = QPushButton(self.frame)
-        # self.pushButton_10.setObjectName(u"pushButton_10")
-        #
-        # self.horizontalLayout_4.addWidget(self.pushButton_10)
-        #
-        # self.pushButton_11 = QPushButton(self.frame)
-        # self.pushButton_11.setObjectName(u"pushButton_11")
-        #
-        # self.horizontalLayout_4.addWidget(self.pushButton_11)
-        #
-        # self.verticalLayout_8.addLayout(self.horizontalLayout_4)
-        #
-        # self.progressBar = QProgressBar(self.frame)
-        # self.progressBar.setObjectName(u"progressBar")
-        # self.progressBar.setValue(24)
-        #
-        # self.verticalLayout_8.addWidget(self.progressBar)
+        self.tbl_main = QTableView(self.widget_2)
+        self.model = QStandardItemModel(0, 4)
+        self.model.setItem(0, 0, QStandardItem("Задача"))
+        self.model.setItem(0, 1, QStandardItem("Дата1"))
+        self.model.setItem(0, 2, QStandardItem("Дата2"))
+        self.model.setItem(0, 3, QStandardItem("24%"))
 
-        # self.verticalLayout_9.addWidget(self.frame)
-        # self.verticalLayout_9.addWidget(self.frame)
-        # self.verticalLayout_9.addWidget(self.frame)
 
-        # self.verticalLayout_9.addWidget(main.create_frames(self, 2))
-        # self.verticalLayout_9.addWidget(main.create_frames(self, 3))
-        # self.verticalLayout_9.addWidget(main.create_frames(self, 4))
-        # self.verticalLayout_9.addWidget(main.create_frames(self, 5))
-        # self.verticalLayout_9.addWidget(main.create_frames(self, 6))
-
-        # self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-        # self.scrollArea.setWidget(self.frame)
-        # self.scrollArea.setWidget(self.frame)
-        # self.scrollArea.setWidget(self.frame)
-        #
-        self.verticalLayout_10.addWidget(self.scrollArea)
-        layout = QVBoxLayout()
-        lst_1 = ["задача1", "задача2", "задача3", "задача4", "задача5"]
-        lst_2 = ["22.02.2023", "25.05.2023", "01.04.2023", "08.08.2023", "31.12.2023"]
-        lst_3 = ["22.02.2024", "25.05.2024", "01.04.2024", "08.08.2024", "31.12.2024"]
-        lst_4 = [88, 54, 32, 9, 76]
-        dict = {"1": QPushButton("задача1"), "2": QPushButton("задача2"), "3": QPushButton("задача3"), "4": QPushButton("задача4"), "5": QPushButton("задача5")}
-        for i in range(5):
-            layout_h = QHBoxLayout()
-            line_edit = QLineEdit(lst_1[i])
-            lbl_start = QLabel(lst_2[i])
-            lbl_finish = QLabel(lst_3[i])
-            progress = QProgressBar()
-            progress.setValue(lst_4[i])
-            button = dict[str(i + 1)]
-            layout_h.addWidget(line_edit)
-            layout_h.addWidget(lbl_start)
-            layout_h.addWidget(lbl_finish)
-            layout_h.addWidget(progress)
-            layout_h.addWidget(button)
-            layout.addLayout(layout_h)
-
-        w = QWidget()
-        w.setLayout(layout)
-        self.scrollArea.setWidget(w)
+        self.tbl_main.setModel(self.model)
+        self.verticalLayout_10.addWidget(self.tbl_main)
 
         self.horizontalLayout_5.addWidget(self.widget_2)
 
@@ -292,8 +208,3 @@ class Ui_MainWindow(object):
         self.menu_2.addAction(self.action_7)
 
         QMetaObject.connectSlotsByName(MainWindow)
-
-        button.clicked.connect(partial(self.add_task, button.text()))
-
-    def add_task(self, text):
-        print(text)
