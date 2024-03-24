@@ -2,11 +2,8 @@ from functools import partial
 
 from PyQt5.QtWidgets import QMenuBar, QMenu, QStatusBar, QPushButton, QProgressBar, QHBoxLayout, QLineEdit, QFrame, \
     QVBoxLayout, QLabel, QWidget, QScrollArea, QCheckBox, QDateEdit, QDateTimeEdit, QListView, QGroupBox, QAction
-from PyQt5.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
-                          QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
-from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-                         QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
-                         QPixmap, QRadialGradient, QStandardItemModel, QStandardItem)
+from PyQt5.QtCore import (QDateTime, QMetaObject, QSize)
+from PyQt5.QtGui import (QFont)
 from PyQt5.QtWidgets import *
 from modules import main, database
 
@@ -55,6 +52,10 @@ class Ui_MainWindow(object):
 
         self.listView = QListView(self.groupBox)
         self.listView.setModel(model)
+
+        self.listView.selectionModel().selectionChanged.connect(
+            partial(self.test, self.listView)
+        )
 
         self.checkBox = QCheckBox(self.groupBox)
         self.checkBox.setText("Показывать завершенные проекты")
@@ -210,3 +211,6 @@ class Ui_MainWindow(object):
         self.menu_2.addAction(self.action_7)
 
         QMetaObject.connectSlotsByName(MainWindow)
+
+    def test(self, list_view):
+        self.label.setText(list_view.currentIndex().data())
